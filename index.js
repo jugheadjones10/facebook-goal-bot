@@ -55,6 +55,10 @@ app.get('/webhook', (req, res) => {
     }
 });
 
+app.get("/", (req, res) => {
+    console.log("ahey ijides")
+})
+
 
 
 app.listen(port, function(){
