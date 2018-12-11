@@ -1,4 +1,3 @@
-'use strict';
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -68,16 +67,16 @@ app.post('/webhook', (req, res) => {
             let webhook_event = entry.messaging[0]
             console.log(webhook_event)
 
-            let sender_psid = webhook_event.sender.id;
-            console.log('Sender PSID: ' + sender_psid);
+            // let sender_psid = webhook_event.sender.id;
+            // console.log('Sender PSID: ' + sender_psid);
 
-            // Check if the event is a message or postback and
-            // pass the event to the appropriate handler function
-            if (webhook_event.message) {
-                handleMessage(sender_psid, webhook_event.message);
-            } else if (webhook_event.postback) {
-                handlePostback(sender_psid, webhook_event.postback);
-            }
+            // // Check if the event is a message or postback and
+            // // pass the event to the appropriate handler function
+            // if (webhook_event.message) {
+            //     handleMessage(sender_psid, webhook_event.message);
+            // } else if (webhook_event.postback) {
+            //     handlePostback(sender_psid, webhook_event.postback);
+            // }
         })
 
         // Returns a '200 OK' response to all requests
@@ -120,10 +119,10 @@ app.listen(port, function(){
     console.log("Webhook is listening")
 })
 
-//C:\Users\YOUNG JIN KIM\Desktop>curl 
-//--header "Content-Type:application/json" 
-//-X POST "https://agile-stream-65681.herokuapp.com/webhook" 
-//-d @FBJSON.txt
+// C:\Users\YOUNG JIN KIM\Desktop>curl 
+// --header "Content-Type:application/json" 
+// -X POST "https://agile-stream-65681.herokuapp.com/webhook" 
+// -d @FBJSON.txt
 
 // C:\Users\YOUNG JIN KIM\Desktop>curl 
 // -X GET "https://agile-stream-65681.herokuapp.com/webhook?hub.verify_token=123&hub.challenge=CHALLENGE_ACCEPTED&hub.mode=subscribe"
