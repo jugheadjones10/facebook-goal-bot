@@ -58,6 +58,6 @@ app.get('/webhook', (req, res) => {
 });
 
 
-app.listen(1337, function(){
+app.listen(port, function(){
     console.log("Webhook is listening")
 })
