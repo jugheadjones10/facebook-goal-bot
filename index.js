@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -7,8 +9,8 @@ const port = process.env.PORT
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
-    let body = req.body;
-    console.log(body)
+    let body = req.body
+
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
 
@@ -35,9 +37,9 @@ app.get('/webhook', (req, res) => {
     let VERIFY_TOKEN = "123"
       
     // Parse the query params
-    let mode = req.query['hub.mode'];
-    let token = req.query['hub.verify_token'];
-    let challenge = req.query['hub.challenge'];
+    let mode = req.query['hub.mode']
+    let token = req.query['hub.verify_token']
+    let challenge = req.query['hub.challenge']
       
     // Checks if a token and mode is in the query string of the request
     if (mode && token) {
@@ -45,22 +47,17 @@ app.get('/webhook', (req, res) => {
       if (mode === 'subscribe' && token === VERIFY_TOKEN) {
         
         // Responds with the challenge token from the request
-        console.log('WEBHOOK_VERIFIED');
-        res.status(200).send(challenge);
+        console.log('WEBHOOK_VERIFIED')
+        res.status(200).send(challenge)
       
       } else {
         // Responds with '403 Forbidden' if verify tokens do not match
-        res.sendStatus(403);      
+        res.sendStatus(403)      
       }
     }
 });
 
-app.get("/", (req, res) => {
-    console.log("ahey ijides")
-})
 
-
-
-app.listen(port, function(){
+app.listen(1337, function(){
     console.log("Webhook is listening")
 })
