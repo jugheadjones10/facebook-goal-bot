@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const app = express().use(bodyParser.json())
 
 const port = process.env.PORT
+const PAGE_ACCESS_TOKEN= "EAAHZCbQCoCS4BAKGQoWqEE9WoavLj3eP3wOgSHikNGylf0y6ktZAVxhXHdairO9g6ZC4x45giKmBzCsnBJhpQUZAPCTxUxG1ovMNmLhN7WchTX58ttLi5ihywoO2ZB9DrU45cV1ZCOU6obb2LZAZAaptGG4XOYQn3pGZAaxU4tfZCZAj7vH9MpvxL1f"
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
@@ -20,6 +21,9 @@ app.post('/webhook', (req, res) => {
             // will only ever contain one message, so we get index 0
             let webhook_event = entry.messaging[0]
             console.log(webhook_event)
+
+            let sender_psid = webhook_event.sender.id;
+            console.log('Sender PSID: ' + sender_psid);
         })
 
         // Returns a '200 OK' response to all requests
@@ -61,3 +65,11 @@ app.get('/webhook', (req, res) => {
 app.listen(port, function(){
     console.log("Webhook is listening")
 })
+
+//C:\Users\YOUNG JIN KIM\Desktop>curl 
+//--header "Content-Type:application/json" 
+//-X POST "https://agile-stream-65681.herokuapp.com/webhook" 
+//-d @FBJSON.txt
+
+// C:\Users\YOUNG JIN KIM\Desktop>curl 
+// -X GET "https://agile-stream-65681.herokuapp.com/webhook?hub.verify_token=123&hub.challenge=CHALLENGE_ACCEPTED&hub.mode=subscribe"
