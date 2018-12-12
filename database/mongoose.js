@@ -1,15 +1,16 @@
 var mongoose = require("mongoose")
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://yj:jugheadjones10@cluster0.mongodb.net/Caregivers-info";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
- // perform actions on the collection object
-  client.close();
-});
 
-mongoose.connect("mongodb://yj:jugheadjones10@gvhcaregivers-shard-00-00-fvtij.gcp.mongodb.net:27017,gvhcaregivers-shard-00-01-fvtij.gcp.mongodb.net:27017,gvhcaregivers-shard-00-02-fvtij.gcp.mongodb.net:27017/Caregivers-info?ssl=true&replicaSet=GVHCaregivers-shard-0&authSource=admin&retryWrites=true")
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://yj:jugheadjones10@cluster0.mongodb.net/Caregivers-info";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//  // perform actions on the collection object
+//   client.close();
+// });
+
+mongoose.connect("mongodb://yj:jugheadjones10@ds039484.mlab.com:39484/gvhcaregivers")
 
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
