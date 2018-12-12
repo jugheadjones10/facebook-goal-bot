@@ -50,7 +50,7 @@ function handleMessage(sender_psid, received_message) {
         }
 
         if(received_message.quick_reply){
-            careSetting.updateOne({sender_PSID: sender_psid}, {$set: {morning_time: received_message.quick_reply.payload}})
+            careSetting.where({sender_PSID: sender_psid}).update({$set: {morning_time: received_message.quick_reply.payload}})
             response = {
                 "text": `Alrighty, we will send you your daily goal setter at ${received_message.quick_reply.payload} every morning`
             }
