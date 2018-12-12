@@ -10,6 +10,7 @@ function handleMessage(sender_psid, received_message) {
         response = {
             "text": `You sent the message: "${received_message.text}". Btw : JH is a fag`
         }
+        
     }else if(received_message.attachments){
         
         // Gets the URL of the message attachment
