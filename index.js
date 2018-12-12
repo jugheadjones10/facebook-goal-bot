@@ -1,8 +1,8 @@
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const handleMessage = require("./handlers/message-handler")
-const handlePostback = require("./handlers/postback-handler")
+const {handleMessage} = require("./handlers/message-handler")
+const {handlePostback} = require("./handlers/postback-handler")
 
 const app = express().use(bodyParser.json())
 
