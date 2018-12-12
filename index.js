@@ -5,8 +5,8 @@ const {handleMessage} = require("./handlers/message-handler")
 const {handlePostback} = require("./handlers/postback-handler")
 
 
-var {careDaily, careSetting, careWeekly} = require("./../mongoose-schemas/one")
-var {mongoose} = require("./../database/mongoose")
+var {careDaily, careSetting, careWeekly} = require("./mongoose-schemas/one")
+var {mongoose} = require("./database/mongoose")
 
 
 
