@@ -10,7 +10,7 @@ function handleMessage(sender_psid, received_message) {
     if (received_message.text) {
 
         if(received_message.text === "Get Started"){
-            var newUser = new careSetting({sender_PSID: "1232"})
+            var newUser = new careSetting({sender_PSID: "6868"})
             newUser.save().then((doc) => {
                 console.log("success")
             }, (e) => {
