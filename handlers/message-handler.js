@@ -1,5 +1,6 @@
 var {callSendAPI} = require("./callSendAPI")
 var {careDaily, careSetting, careWeekly} = require("./../mongoose-schemas/one")
+var {mongoose} = require("./../database/mongoose")
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
