@@ -9,12 +9,6 @@ function handleMessage(sender_psid, received_message) {
     if (received_message.text) {
 
         if(received_message.text === "Get Started"){
-            var newUser = new careSetting({sender_PSID: sender_psid.toString()})
-            newUser.save().then((doc) => {
-                console.log("success")
-            }, (e) => {
-                console.log("ERROR")
-            })
             response = {
                 "text": "Welcome to the GVH goals manager bot! At which time in the morning would you like to set your daily goals?",
                 "quick_replies":[

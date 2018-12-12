@@ -2,7 +2,15 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {handleMessage} = require("./handlers/message-handler")
-const {handlePostback} = require("./handlers/postback-handler")
+const {handlePostback} = require("./handlers/postback-handler")\
+
+
+var {careDaily, careSetting, careWeekly} = require("./../mongoose-schemas/one")
+var {mongoose} = require("./../database/mongoose")
+
+
+
+
 
 const app = express().use(bodyParser.json())
 
@@ -12,6 +20,14 @@ const PAGE_ACCESS_TOKEN= "EAAHZCbQCoCS4BAKGQoWqEE9WoavLj3eP3wOgSHikNGylf0y6ktZAV
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
+
+    var newUser = new careSetting({sender_PSID: sender_psid.toString()})
+    newUser.save().then((doc) => {
+        console.log("success")
+    }, (e) => {
+        console.log("ERROR")
+    })
+
     let body = req.body
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
