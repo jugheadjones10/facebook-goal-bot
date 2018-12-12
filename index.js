@@ -21,7 +21,7 @@ const PAGE_ACCESS_TOKEN= "EAAHZCbQCoCS4BAKGQoWqEE9WoavLj3eP3wOgSHikNGylf0y6ktZAV
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
 
-    var newUser = new careSetting({sender_PSID: sender_psid.toString()})
+    var newUser = new careSetting({sender_PSID: "1232"})
     newUser.save().then((doc) => {
         console.log("success")
     }, (e) => {
