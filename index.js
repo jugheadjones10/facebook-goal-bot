@@ -2,84 +2,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
+const handleMessage = require("./handlers/message-handler")
+const handlePostback = require("./handlers/postback-handler")
 
 const app = express().use(bodyParser.json())
 
 const port = process.env.PORT
 const PAGE_ACCESS_TOKEN= "EAAHZCbQCoCS4BAKGQoWqEE9WoavLj3eP3wOgSHikNGylf0y6ktZAVxhXHdairO9g6ZC4x45giKmBzCsnBJhpQUZAPCTxUxG1ovMNmLhN7WchTX58ttLi5ihywoO2ZB9DrU45cV1ZCOU6obb2LZAZAaptGG4XOYQn3pGZAaxU4tfZCZAj7vH9MpvxL1f"
-
-// Handles messages events
-function handleMessage(sender_psid, received_message) {
-    let response;
-    // Check if the message contains text
-    if (received_message.text) {
-
-        // Create the payload for a basic text message
-        response = {
-        "text": `You sent the message: "${received_message.text}". Btw : JH is a fag`
-        }
-    }else if(received_message.attachments){
-        
-        // Gets the URL of the message attachment
-        let attachment_url = received_message.attachments[0].payload.url
-        response = {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": [{
-                        "title": "Is this the right picture?",
-                        "subtitle": "Tap a button to answer.",
-                        "image_url": attachment_url,
-                        "buttons": [
-                            {
-                                "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
-                            },
-                            {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
-                            }
-                        ]
-                    }]
-                }
-            }
-        }
-    }
-
-    // Sends the response message
-    callSendAPI(sender_psid, response);        
-}
-
-// Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {}
-
-// Sends response messages via the Send API
-function callSendAPI(sender_psid, response) {
-     // Construct the message body
-    let request_body = {
-        "recipient": {
-        "id": sender_psid
-        },
-        "message": response
-    }
-
-    request(
-        {
-            "uri": "https://graph.facebook.com/v2.6/me/messages",
-            "qs": { "access_token": "EAAHZCbQCoCS4BAKGQoWqEE9WoavLj3eP3wOgSHikNGylf0y6ktZAVxhXHdairO9g6ZC4x45giKmBzCsnBJhpQUZAPCTxUxG1ovMNmLhN7WchTX58ttLi5ihywoO2ZB9DrU45cV1ZCOU6obb2LZAZAaptGG4XOYQn3pGZAaxU4tfZCZAj7vH9MpvxL1f"},
-            "method": "POST",
-            "json": request_body
-        }, (err, res, body) => {
-            if (!err) {
-                console.log('message sent!')
-            } else {
-                console.error("Unable to send message:" + err);
-            }
-    })
-}
 
 
 // Creates the endpoint for our webhook 
