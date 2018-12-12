@@ -5,50 +5,52 @@ var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
-    let response;
+    let response
     // Check if the message contains text
     if (received_message.text) {
 
         if(received_message.text === "Get Started"){
-            var newUser = new careSetting({sender_PSID: "6868"})
+            var newUser = new careSetting({sender_PSID: sender_psid})
             newUser.save().then((doc) => {
                 console.log("success")
-            }, (e) => {
+                }, (e) => {
                 console.log("ERROR")
-            })
+                }
+            )
             response = {
                 "text": "Welcome to the GVH goals manager bot! At which time in the morning would you like to set your daily goals?",
                 "quick_replies":[
                     {
                         "content_type":"text",
                         "title":"5am",
-                        "payload":"5am"
+                        "payload":5
                     },
                     {
                         "content_type":"text",
                         "title":"6am",
-                        "payload":"6am"
+                        "payload":6
                     },
                     {
                         "content_type":"text",
                         "title":"7am",
-                        "payload":"7am"
+                        "payload":7
                     },
                     {
                         "content_type":"text",
                         "title":"8am",
-                        "payload":"8am"
+                        "payload":8
                     },
                     {
                         "content_type":"text",
                         "title":"9am",
-                        "payload":"9am"
+                        "payload":9
                     }               
                 ]
             }
         }
 
         if(received_message.quick_reply){
+            careSetting.updateOne({sender_PSID: sender_psid}, {$set: {morning_time: received_message.quick_reply.payload}})
             response = {
                 "text": `Alrighty, we will send you your daily goal setter at ${received_message.quick_reply.payload} every morning`
             }

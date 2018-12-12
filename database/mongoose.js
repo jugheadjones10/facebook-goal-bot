@@ -1,6 +1,5 @@
 var mongoose = require("mongoose")
 
-
 // const MongoClient = require('mongodb').MongoClient;
 // const uri = "mongodb+srv://yj:jugheadjones10@cluster0.mongodb.net/Caregivers-info";
 // const client = new MongoClient(uri, { useNewUrlParser: true });
