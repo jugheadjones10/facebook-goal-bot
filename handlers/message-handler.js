@@ -1,16 +1,15 @@
 var {callSendAPI} = require("./callSendAPI")
 var {careDaily, careSetting, careWeekly} = require("./../mongoose-schemas/one")
-var {mongoose} = require("./../database/mongoose")
+var mongoose = require("mongoose")
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
     let response;
-    var newUser
     // Check if the message contains text
     if (received_message.text) {
 
         if(received_message.text === "Get Started"){
-            newUser = new careSetting({sender_PSID: sender_psid})
+            var newUser = new careSetting({sender_PSID: sender_psid.toString()})
             newUser.save(function(err){
                 if (err){
                     console.log("Theren was an error!")
