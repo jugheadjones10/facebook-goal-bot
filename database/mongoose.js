@@ -1,6 +1,6 @@
 var mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/Caregivers-info")
+mongoose.connect("mongodb://yj:jugheadjones@gvhcaregivers-shard-00-00-fvtij.gcp.mongodb.net:27017,gvhcaregivers-shard-00-01-fvtij.gcp.mongodb.net:27017,gvhcaregivers-shard-00-02-fvtij.gcp.mongodb.net:27017/Caregivers-info?ssl=true&replicaSet=GVHCaregivers-shard-0&authSource=admin&retryWrites=true")
 
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
