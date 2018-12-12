@@ -1,12 +1,15 @@
 var {callSendAPI} = require("./callSendAPI")
+var {careDaily, careSetting, careWeekly} = require("./../mongoose-schemas/one")
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
     let response;
+    var newUser
     // Check if the message contains text
     if (received_message.text) {
 
         if(received_message.text === "Get Started"){
+            newUser = new careSetting({sender_PSID: sender_psid})
             response = {
                 "text": "Welcome to the GVH goals manager bot! At which time in the morning would you like to set your daily goals?",
                 "quick_replies":[
