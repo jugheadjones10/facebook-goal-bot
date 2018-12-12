@@ -18,8 +18,8 @@ var caregiverWeeklySchema = new mongoose.Schema({
 var caregiverDailySchema = new mongoose.Schema({
     sender_PSID: String,
     date: Date,
-    daily_goals: [{text: String}],
-    daily_goals_conclusion: [{completed: Boolean}]
+    daily_goals: String,
+    daily_goals_conclusion: Boolean
 })
 
 var careSetting = mongoose.model("careSetting", caregiverSettingSchema)
