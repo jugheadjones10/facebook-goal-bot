@@ -1,7 +1,6 @@
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const request = require('request')
 const handleMessage = require("./handlers/message-handler")
 const handlePostback = require("./handlers/postback-handler")
 
