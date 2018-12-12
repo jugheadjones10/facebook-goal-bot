@@ -21,27 +21,27 @@ function handlePostback(sender_psid, received_postback) {
                 {
                     "content_type":"text",
                     "title":"5am",
-                    "payload":"morning 5am"
+                    "payload":"5am"
                 },
                 {
                     "content_type":"text",
                     "title":"6am",
-                    "payload":"morning 6am"
+                    "payload":"6am"
                 },
                 {
                     "content_type":"text",
                     "title":"7am",
-                    "payload":"morning 7am"
+                    "payload":"7am"
                 },
                 {
                     "content_type":"text",
                     "title":"8am",
-                    "payload":"morning 8am"
+                    "payload":"8am"
                 },
                 {
                     "content_type":"text",
                     "title":"9am",
-                    "payload":"morning 9am"
+                    "payload":"9am"
                 }               
             ]
         }
