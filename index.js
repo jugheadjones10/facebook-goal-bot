@@ -21,13 +21,6 @@ const PAGE_ACCESS_TOKEN= "EAAHZCbQCoCS4BAKGQoWqEE9WoavLj3eP3wOgSHikNGylf0y6ktZAV
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
 
-    var newUser = new careSetting({sender_PSID: "1232"})
-    newUser.save().then((doc) => {
-        console.log("success")
-    }, (e) => {
-        console.log("ERROR")
-    })
-
     let body = req.body
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
