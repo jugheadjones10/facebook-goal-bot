@@ -37,9 +37,10 @@ function send_morning_time__send_night_time(received_message, sender_psid){
                 }         
             ]
         }
+        
+        callSendAPI(sender_psid, response);  
     }
 
-    callSendAPI(sender_psid, response);  
 }
 
 module.exports = {send_morning_time__send_night_time}

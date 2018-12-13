@@ -47,9 +47,11 @@ function get_started__send_morning_time(received_message, sender_psid){
                 }               
             ]
         }
+
+        callSendAPI(sender_psid, response);  
     }
 
-    callSendAPI(sender_psid, response);  
+   
 }
 
 module.exports = {get_started__send_morning_time}
