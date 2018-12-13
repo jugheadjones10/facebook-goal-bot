@@ -3,4 +3,5 @@ function hey(one){
 }
 
 
+if()
 console.log(lol)

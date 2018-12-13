@@ -24,7 +24,7 @@ function get_started__send_morning_time(received_message, sender_psid){
                 {
                     "content_type":"text",
                     "title":"5am",
-                    "payload":"morning-time"
+                    "payload":"5am"
                 },
                 {
                     "content_type":"text",
