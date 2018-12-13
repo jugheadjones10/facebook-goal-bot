@@ -14,20 +14,20 @@ function handleMessage(sender_psid, received_message) {
         send_morning_time__send_night_time(received_message, sender_psid)
         
 
-        // if(received_message.quick_reply.payload === "night-time"){
-        //     careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {night_time: received_message.text}}).then((doc) => {
-        //         console.log("success")
-        //         }, (e) => {
-        //         console.log("ERROR")
-        //         }
-        //     )
+        if(received_message.quick_reply.payload === "night-time"){
+            careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {night_time: received_message.text}}).then((doc) => {
+                console.log("success")
+                }, (e) => {
+                console.log("ERROR")
+                }
+            )
 
-        //     var response = {
-        //         "text" : "Great! What is your big goal for 2019? Type 'My goals for 2019 is ...'",
-        //     }
+            var response = {
+                "text" : "Great! What is your big goal for 2019? Type 'My goals for 2019 is ...'",
+            }
 
-        //     callSendAPI(sender_psid, response);  
-        // }
+            callSendAPI(sender_psid, response);  
+        }
 
     }else if(received_message.attachments){
         // Gets the URL of the message attachment
