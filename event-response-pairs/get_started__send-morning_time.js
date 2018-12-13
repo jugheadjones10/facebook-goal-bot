@@ -2,7 +2,7 @@ const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
 
-function get_started__send_morning_time(received_message.text){
+function get_started__send_morning_time(received_message){
     if(received_message.text === "Get Started"){
         careSetting.findOne({sender_PSID: sender_psid}).then((doc) => {
             if(!doc){
