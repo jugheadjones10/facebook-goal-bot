@@ -12,22 +12,8 @@ function handleMessage(sender_psid, received_message) {
 
         get_started__send_morning_time(received_message, sender_psid)
         send_morning_time__send_night_time(received_message, sender_psid)
-        
+        send_night_time__send_year_goal(received_message, sender_psid)
 
-        if(received_message.quick_reply.payload === "night-time"){
-            careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {night_time: received_message.text}}).then((doc) => {
-                console.log("success")
-                }, (e) => {
-                console.log("ERROR")
-                }
-            )
-
-            var hello = {
-                "text" : "Great! What is your big goal for 2019? Type 'My goals for 2019 is ...'",
-            }
-
-            callSendAPI(sender_psid, hello);  
-        }
 
     }else if(received_message.attachments){
         // Gets the URL of the message attachment
