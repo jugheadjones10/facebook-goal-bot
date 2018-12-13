@@ -10,8 +10,8 @@ function handleMessage(sender_psid, received_message) {
     // Check if the message contains text
     if (received_message.text) {
 
-        get_started__send_morning_time(received_message)
-        send_morning_time__send_night_time(received_message)
+        get_started__send_morning_time(received_message, sender_psid)
+        send_morning_time__send_night_time(received_message, sender_psid)
         
 
         if(received_message.quick_reply.payload === "night-time"){
