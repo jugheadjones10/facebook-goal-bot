@@ -1,7 +1,8 @@
 var {callSendAPI} = require("./callSendAPI")
 const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
-
+var {get_started__send_morning_time} = require("./../event-response-pairs/get_started__send-morning_time")
+var {send_morning_time__send_night_time} = require("./../event-response-pairs/send_morning-time__send_night_time")
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
@@ -9,53 +10,12 @@ function handleMessage(sender_psid, received_message) {
     // Check if the message contains text
     if (received_message.text) {
 
-        if(received_message.text === "Get Started"){
-            careSetting.findOne({sender_PSID: sender_psid}).then((doc) => {
-                if(!doc){
-                    var newUser = new careSetting({sender_PSID: sender_psid})
-                    newUser.save().then((doc) => {
-                            console.log("success")
-                        }, (e) => {
-                            console.log("ERROR")
-                        }
-                    )
-                }
-            })
-            
-            response = {
-                "text": "Welcome to the GVH goals manager bot! At which time in the morning would you like to set your daily goals?",
-                "quick_replies":[
-                    {
-                        "content_type":"text",
-                        "title":"5am",
-                        "payload":5
-                    },
-                    {
-                        "content_type":"text",
-                        "title":"6am",
-                        "payload":6
-                    },
-                    {
-                        "content_type":"text",
-                        "title":"7am",
-                        "payload":7
-                    },
-                    {
-                        "content_type":"text",
-                        "title":"8am",
-                        "payload":8
-                    },
-                    {
-                        "content_type":"text",
-                        "title":"9am",
-                        "payload":9
-                    }               
-                ]
-            }
-        }
+        get_started__send_morning_time(received_message.text)
+        send_morning_time__send_night_time(received_message.quick_reply.payload)
+        
 
-        if(received_message.quick_reply){
-            careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {morning_time: received_message.quick_reply.payload}}).then((doc) => {
+        if(received_message.quick_reply.payload === "night-time"){
+            careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {night_time: received_message.text}}).then((doc) => {
                 console.log("success")
                 }, (e) => {
                 console.log("ERROR")
@@ -63,7 +23,7 @@ function handleMessage(sender_psid, received_message) {
             )
 
             response = {
-                "text": `Alrighty, we will send you your daily goal setter at ${received_message.quick_reply.payload} every morning`
+                "text" : "Great! What is your big goal for 2019? Type 'My goals for 2019 is ...'",
             }
         }
 
