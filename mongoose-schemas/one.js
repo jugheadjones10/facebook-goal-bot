@@ -2,8 +2,8 @@ var mongoose = require("mongoose")
 
 var caregiverSettingSchema = new mongoose.Schema({
     sender_PSID: String,
-    morning_time: Number,
-    night_time: Number,
+    morning_time: String,
+    night_time: String,
     yearly_goal: String
 })
 
