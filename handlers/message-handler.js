@@ -22,11 +22,11 @@ function handleMessage(sender_psid, received_message) {
                 }
             )
 
-            var response = {
+            var hello = {
                 "text" : "Great! What is your big goal for 2019? Type 'My goals for 2019 is ...'",
             }
 
-            callSendAPI(sender_psid, response);  
+            callSendAPI(sender_psid, hello);  
         }
 
     }else if(received_message.attachments){
