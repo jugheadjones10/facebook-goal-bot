@@ -6,7 +6,7 @@ var {send_morning_time__send_night_time} = require("./../event-response-pairs/se
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
-    let response
+
     // Check if the message contains text
     if (received_message.text) {
 
@@ -22,9 +22,11 @@ function handleMessage(sender_psid, received_message) {
                 }
             )
 
-            response = {
+            var response = {
                 "text" : "Great! What is your big goal for 2019? Type 'My goals for 2019 is ...'",
             }
+
+            callSendAPI(sender_psid, response);  
         }
 
     }else if(received_message.attachments){
@@ -56,9 +58,7 @@ function handleMessage(sender_psid, received_message) {
         //     }
         // }
     }
-
-    // Sends the response message
-    callSendAPI(sender_psid, response);        
+        
 }
 
 module.exports = {handleMessage}
