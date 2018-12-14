@@ -6,8 +6,9 @@
 // console.log(global.one)
 
 var hello = "My name is 2000 Kim Young Jin"
-var one = hello.split("2000", 1)
+var one = hello.split("2000", 2)
 
-if(hello.split(" ").includes("2000")){
-    console.log(2)
-}
+
+    console.log(one[1])
+
+
