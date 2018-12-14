@@ -14,41 +14,41 @@ function get_started__send_morning_time(received_message, sender_psid){
                     }
                 )
             }
-        }, (err) => {
-            console.log(err)
+            var response
+            return response = {
+                "text": "Welcome to the GVH goals manager bot! At which time in the morning would you like to set your daily goals?",
+                "quick_replies":[
+                    {
+                        "content_type":"text",
+                        "title":"5am",
+                        "payload":"morning-time"
+                    },
+                    {
+                        "content_type":"text",
+                        "title":"6am",
+                        "payload":"morning-time"
+                    },
+                    {
+                        "content_type":"text",
+                        "title":"7am",
+                        "payload":"morning-time"
+                    },
+                    {
+                        "content_type":"text",
+                        "title":"8am",
+                        "payload":"morning-time"
+                    },
+                    {
+                        "content_type":"text",
+                        "title":"9am",
+                        "payload":"morning-time"
+                    }               
+                ]
+            }
+
         })
 
-        var response
-        return response = {
-            "text": "Welcome to the GVH goals manager bot! At which time in the morning would you like to set your daily goals?",
-            "quick_replies":[
-                {
-                    "content_type":"text",
-                    "title":"5am",
-                    "payload":"morning-time"
-                },
-                {
-                    "content_type":"text",
-                    "title":"6am",
-                    "payload":"morning-time"
-                },
-                {
-                    "content_type":"text",
-                    "title":"7am",
-                    "payload":"morning-time"
-                },
-                {
-                    "content_type":"text",
-                    "title":"8am",
-                    "payload":"morning-time"
-                },
-                {
-                    "content_type":"text",
-                    "title":"9am",
-                    "payload":"morning-time"
-                }               
-            ]
-        }
+       
 
     }else{
         return undefined
