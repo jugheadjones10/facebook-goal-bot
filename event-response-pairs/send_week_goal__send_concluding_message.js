@@ -41,4 +41,4 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
     }
 }
 
-module.exports = {send_year_goal__send_week_goal}
+module.exports = {send_week_goal__send_concluding_message}
