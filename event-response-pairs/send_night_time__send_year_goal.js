@@ -1,6 +1,5 @@
 const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
-var {callSendAPI} = require("./../handlers/callSendAPI")
 
 function send_night_time__send_year_goal(received_message, sender_psid){
 
