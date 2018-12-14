@@ -5,7 +5,7 @@ function send_year_goal__send_week_goal(received_message, sender_psid){
 
     var checker = received_message.text.split("2019", 1)
 
-    if(checker[0] === "My goal for"){
+    if(checker[0] === "My goal for "){
         careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {yearly_goal: received_message.text}}).then((doc) => {
             console.log("success")
             }, (e) => {

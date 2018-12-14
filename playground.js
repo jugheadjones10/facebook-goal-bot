@@ -5,5 +5,9 @@
 
 // console.log(global.one)
 
-var hello = "My name is Kim Young Jin"
-console.log(hello.split("is", 1))
+var hello = "My name is 2000 Kim Young Jin"
+var one = hello.split("2000", 1)
+
+if(one[0] === "My name is "){
+    console.log(1234)
+}
