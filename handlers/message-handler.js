@@ -11,9 +11,7 @@ function handleMessage(sender_psid, received_message) {
     // Check if the message contains text
     if (received_message.text) {
        
-
-
-        callSendAPI(sender_psid, get_started__send_morning_time(received_message, sender_psid) ||  send_morning_time__send_night_time(received_message, sender_psid) ||  send_night_time__send_year_goal(received_message, sender_psid)
+        callSendAPI(sender_psid, get_started__send_morning_time(received_message, sender_psid) ||  send_morning_time__send_night_time(received_message, sender_psid) ||  send_night_time__send_year_goal(received_message, sender_psid))
 
         // var hey = [
         //     get_started__send_morning_time(received_message, sender_psid),
