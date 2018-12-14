@@ -40,7 +40,7 @@ function send_morning_time__send_night_time(received_message, sender_psid){
         }
 
     }else{
-        return 5
+        return undefined
     }
 
     

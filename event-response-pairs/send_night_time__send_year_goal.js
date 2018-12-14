@@ -19,7 +19,7 @@ function send_night_time__send_year_goal(received_message, sender_psid){
         }
 
     }else{
-        return 5
+        return undefined
     }
 
 }
