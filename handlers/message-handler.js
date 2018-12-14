@@ -4,6 +4,7 @@ var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 var {get_started__send_morning_time} = require("./../event-response-pairs/get_started__send-morning_time")
 var {send_morning_time__send_night_time} = require("./../event-response-pairs/send_morning-time__send_night_time")
 var {send_night_time__send_year_goal} = require("./../event-response-pairs/send_night_time__send_year_goal")
+var {send_year_goal__send_week_goal} = require("./../event-response-pairs/send_year_goal__send_week_goal")
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
@@ -14,7 +15,7 @@ function handleMessage(sender_psid, received_message) {
         callSendAPI(sender_psid, get_started__send_morning_time(received_message, sender_psid) 
         ||  send_morning_time__send_night_time(received_message, sender_psid) 
         ||  send_night_time__send_year_goal(received_message, sender_psid)
-    
+        ||  send_year_goal__send_week_goal(received_message, sender_psid)
         )
 
         

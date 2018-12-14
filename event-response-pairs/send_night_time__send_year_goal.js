@@ -14,10 +14,8 @@ function send_night_time__send_year_goal(received_message, sender_psid){
     
         var response
         return response = {
-            "text" : "Great! What is your big goal for 2019?",
+            "text" : "Great! What is your big goal for 2019? Type 'My goal for 2019 is ...'",
         }
-
-        callSendAPI(sender_psid, {"text" : "Type 'My goal for 2019 is...'"})
 
     }else{
         return undefined
