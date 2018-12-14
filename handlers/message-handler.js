@@ -9,7 +9,9 @@ function handleMessage(sender_psid, received_message) {
 
     // Check if the message contains text
     if (received_message.text) {
-
+        if(received_message.text === "HI"){
+            callSendAPI(sender_psid, {"text":"Sup faggot"})
+        }
         callSendAPI(sender_psid, 
             get_started__send_morning_time(received_message, sender_psid) ||
             send_morning_time__send_night_time(received_message, sender_psid) ||

@@ -18,7 +18,7 @@ function get_started__send_morning_time(received_message, sender_psid){
             }
         })
 
-       var response
+        var response
         return response = {
             "text": "Welcome to the GVH goals manager bot! At which time in the morning would you like to set your daily goals?",
             "quick_replies":[
