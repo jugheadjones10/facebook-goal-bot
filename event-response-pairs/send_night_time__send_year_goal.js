@@ -1,6 +1,6 @@
 const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
-var {callSendAPI} = require("./../handlers/callSendAPI")
+// var {callSendAPI} = require("./../handlers/callSendAPI")
 
 
 function send_night_time__send_year_goal(received_message, sender_psid){
@@ -13,11 +13,11 @@ function send_night_time__send_year_goal(received_message, sender_psid){
             }
         )
     
-        var response = {
+        var response
+        return response = {
             "text" : "Great! What is your big goal for 2019? Type 'My goals for 2019 is ...'",
         }
-    
-        callSendAPI(sender_psid, response);  
+
     }
 
 }

@@ -1,6 +1,6 @@
 const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
-var {callSendAPI} = require("./../handlers/callSendAPI")
+//var {callSendAPI} = require("./../handlers/callSendAPI")
 
 
 function get_started__send_morning_time(received_message, sender_psid){
@@ -17,8 +17,9 @@ function get_started__send_morning_time(received_message, sender_psid){
                 )
             }
         })
-        
-        var response = {
+
+       var response
+        return response = {
             "text": "Welcome to the GVH goals manager bot! At which time in the morning would you like to set your daily goals?",
             "quick_replies":[
                 {
@@ -49,7 +50,6 @@ function get_started__send_morning_time(received_message, sender_psid){
             ]
         }
 
-        callSendAPI(sender_psid, response);  
     }
 
    

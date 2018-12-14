@@ -1,6 +1,6 @@
 const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
-var {callSendAPI} = require("./../handlers/callSendAPI")
+// var {callSendAPI} = require("./../handlers/callSendAPI")
 
 function send_morning_time__send_night_time(received_message, sender_psid){
     
@@ -11,8 +11,9 @@ function send_morning_time__send_night_time(received_message, sender_psid){
             console.log("ERROR")
             }
         )
-    
-        var response = {
+        
+        var response
+        return response = {
             "text": `Alrighty, we will send you your daily goal setter at ${received_message.text} every morning. When would you like to tick your daily tasks?`,
             "quick_replies":[
                 {
@@ -38,7 +39,6 @@ function send_morning_time__send_night_time(received_message, sender_psid){
             ]
         }
 
-        callSendAPI(sender_psid, response);  
     }
 
     

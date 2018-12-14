@@ -10,11 +10,13 @@ function handleMessage(sender_psid, received_message) {
     // Check if the message contains text
     if (received_message.text) {
 
-        get_started__send_morning_time(received_message, sender_psid)
-        send_morning_time__send_night_time(received_message, sender_psid)
-        send_night_time__send_year_goal(received_message, sender_psid)
-
-
+        callSendAPI(sender_psid, 
+            get_started__send_morning_time(received_message, sender_psid) ||
+            send_morning_time__send_night_time(received_message, sender_psid) ||
+            send_night_time__send_year_goal(received_message, sender_psid) 
+        )
+        
+    
     }else if(received_message.attachments){
         // Gets the URL of the message attachment
         let attachment_url = received_message.attachments[0].payload.url
@@ -44,6 +46,8 @@ function handleMessage(sender_psid, received_message) {
         //     }
         // }
     }
+
+    
         
 }
 

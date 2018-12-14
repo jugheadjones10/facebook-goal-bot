@@ -1,7 +1,6 @@
-function hey(one){
-    var lol = 123
-}
+var {one_f} = require("./playground-2")
 
+var one = 2
+one_f(one)
 
-if()
-console.log(lol)
+console.log(global.one)
