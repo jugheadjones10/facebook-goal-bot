@@ -16,6 +16,7 @@ function get_started__send_morning_time(received_message, sender_psid){
                     }
                 )
             }
+            return
         })
 
         var response
