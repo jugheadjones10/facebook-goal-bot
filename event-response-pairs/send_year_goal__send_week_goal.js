@@ -17,13 +17,13 @@ function send_year_goal__send_week_goal(received_message, sender_psid){
         
             var response
             return response = {
-                "text" : "Awesome. Let's start with week 1. What smaller goal do you have for this coming week that will help you achieve your yearly goal?"
+                "text" : "Awesome. Let's start with week 1. What smaller goal do you have for this coming week? Type 'My week 1 goal is ...'"
             }
     
         }else{
             return undefined
         }
-        
+
     }else{
         return undefined
     }

@@ -11,6 +11,7 @@ var caregiverWeeklySchema = new mongoose.Schema({
     sender_PSID: String,
     start_date: Date,
     end_date: Date,
+    week_number: Number,
     week_goal: String,
     week_goal_conclusion: String
 })
