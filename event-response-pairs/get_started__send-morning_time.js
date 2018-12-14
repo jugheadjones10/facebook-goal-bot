@@ -6,18 +6,26 @@ var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 function get_started__send_morning_time(received_message, sender_psid){
 
     if(received_message.text === "Get Started"){
-        careSetting.findOne({sender_PSID: sender_psid}).then((doc) => {
-            if(!doc){
-                var newUser = new careSetting({sender_PSID: sender_psid})
-                newUser.save().then((doc) => {
-                        console.log("success")
-                    }, (e) => {
-                        console.log("ERROR")
-                    }
-                )
+        // careSetting.findOne({sender_PSID: sender_psid}).then((doc) => {
+        //     if(!doc){
+        //         var newUser = new careSetting({sender_PSID: sender_psid})
+        //         newUser.save().then((doc) => {
+        //                 console.log("success")
+        //             }, (e) => {
+        //                 console.log("ERROR")
+        //             }
+        //         )
+        //     }
+        //     return
+        // })
+
+        var newUser = new careSetting({sender_PSID: sender_psid})
+        newUser.save().then((doc) => {
+                console.log("success")
+            }, (e) => {
+                console.log("ERROR")
             }
-            return
-        })
+        )
 
         var response
         return response = {
