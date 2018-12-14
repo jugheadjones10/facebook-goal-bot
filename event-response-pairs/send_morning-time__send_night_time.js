@@ -4,7 +4,7 @@ var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
 function send_morning_time__send_night_time(received_message, sender_psid){
     
-    if(received_message.quick_reply.payload === "5am"){
+    if(received_message.quick_reply.payload === "morning-time"){
         careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {morning_time: received_message.text}}).then((doc) => {
             console.log("success")
             }, (e) => {
