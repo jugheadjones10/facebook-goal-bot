@@ -22,7 +22,7 @@ function handleMessage(sender_psid, received_message) {
         ]
 
         hey.forEach(function(res){
-            if(res !== undefined){
+            if(res !== 5){
                 callSendAPI(sender_psid, res)
             }
         })
