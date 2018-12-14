@@ -2,8 +2,9 @@ const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
 function send_year_goal__send_week_goal(received_message, sender_psid){
+
     if(received_message.text.split(" ").includes("2019")){
-        
+
         var checker = received_message.text.split("2019", 1)
 
         if(checker[0] === "My goal for "){
@@ -22,6 +23,7 @@ function send_year_goal__send_week_goal(received_message, sender_psid){
         }else{
             return undefined
         }
+        
     }else{
         return undefined
     }

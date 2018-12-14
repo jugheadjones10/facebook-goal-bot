@@ -8,6 +8,6 @@
 var hello = "My name is 2000 Kim Young Jin"
 var one = hello.split("2000", 1)
 
-if(one[0] === "My name is "){
-    console.log(1234)
+if(hello.split(" ").includes("2000")){
+    console.log(2)
 }
