@@ -9,12 +9,15 @@ var caregiverSettingSchema = new mongoose.Schema({
 
 var caregiverWeeklySchema = new mongoose.Schema({
     sender_PSID: String,
-    start_date: Date,
-    end_date: Date,
+    myWeekDetails: [careGiverWeekSubDoc]
+})
+
+var careGiverWeekSubDoc = new mongoose.Schema({
     week_number: Number,
     week_goal: String,
     week_goal_conclusion: String
 })
+//Change week number in event-response-pairs
 
 var caregiverDailySchema = new mongoose.Schema({
     sender_PSID: String,

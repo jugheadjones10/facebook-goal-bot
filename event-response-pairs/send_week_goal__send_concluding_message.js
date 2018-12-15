@@ -20,12 +20,31 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
                 }
             })
 
-            careWeekly.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {week_goal: received_message.text, week_number: 1}}).then((doc) => {
-                console.log("success")
-                }, (e) => {
-                console.log("ERROR")
+            careWeekly.findOne({sender_PSID: sender_psid}).then(
+                (doc) => {
+                    doc.myWeekDetails.push({
+                        week_number: 1,
+                        week_goal: received_message.text
+                    })
+
+                    doc.save().then((doc) => {
+                        console.log("success")
+                    }, (e) => {
+                        console.log("ERROR")
+                    })
+                },
+                (err) => {
+                    console.log(err)
                 }
             )
+                
+            //     , {$set: {week_goal: received_message.text, week_number: 1}}).then((doc) => {
+            //     console.log("success")
+            //     }, (e) => {
+            //     console.log("ERROR")
+            //     }
+            // )
+
         
             var response
             return response = {
