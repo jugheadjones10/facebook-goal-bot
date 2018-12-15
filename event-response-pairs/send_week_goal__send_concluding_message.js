@@ -23,8 +23,8 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
             careWeekly.findOne({sender_PSID: sender_psid}).then(
                 (doc) => {
                     doc.myWeekDetails.push({
-                        week_number: 1,
-                        week_goal: received_message.text
+                        "week_number" : 1,
+                        "week_goal" : received_message.text
                     })
 
                     doc.save().then((doc) => {
