@@ -30,4 +30,4 @@ var careSetting = mongoose.model("careSetting", caregiverSettingSchema)
 var careDaily = mongoose.model("careDaily", caregiverDailySchema)
 var careWeekly = mongoose.model("careWeekly", caregiverWeeklySchema)
 
-module.exports = {careDaily, careSetting, careWeekly}
+module.exports = {careDaily, careSetting, careWeekly, careGiverWeekSubDoc}

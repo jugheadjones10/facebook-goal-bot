@@ -1,5 +1,5 @@
 const {mongoose} = require("./../database/mongoose")
-var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
+var {careSetting, careDaily, careWeekly, careGiverWeekSubDoc} = require("./../mongoose-schemas/one")
 
 function send_week_goal__send_concluding_message(received_message, sender_psid){
 
@@ -32,9 +32,6 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
                     }, (e) => {
                         console.log("ERROR")
                     })
-                },
-                (err) => {
-                    console.log(err)
                 }
             )
                 
