@@ -29,7 +29,8 @@ function runWeekCheck(){
                 var response = {
                     "text" : `What's your week ${weekOfYear} goal?`
                 }
-            callSendAPI(docs[i].sender_PSID, response)
+
+                callSendAPI(docs[i].sender_PSID, response)
 
             }
         })
