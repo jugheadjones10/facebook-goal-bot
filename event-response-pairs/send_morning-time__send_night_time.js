@@ -1,5 +1,5 @@
 const {mongoose} = require("./../database/mongoose")
-var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
+var {careSetting, careDaily} = require("./../mongoose-schemas/one")
 
 function send_morning_time__send_night_time(received_message, sender_psid){
     if(received_message.quick_reply){

@@ -1,5 +1,5 @@
 const {mongoose} = require("./../database/mongoose")
-var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
+var {careSetting, careDaily} = require("./../mongoose-schemas/one")
 
 function send_year_goal__send_week_goal(received_message, sender_psid){
 
