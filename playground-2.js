@@ -33,9 +33,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //     }
 // )
 
-careWeekly.find().then((docs) => {
-    console.log(docs[0].myWeekDetails)
-})
+// careWeekly.find().then((docs) => {
+//     console.log(docs[0].myWeekDetails)
+// })
 
 
 
