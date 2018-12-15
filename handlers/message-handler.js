@@ -1,5 +1,5 @@
 var {callSendAPI} = require("./callSendAPI")
-const {mongoose} = require("./../database/mongoose")
+var {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly, careGiverWeekSubDoc} = require("./../mongoose-schemas/one")
 var {get_started__send_morning_time} = require("./../event-response-pairs/get_started__send-morning_time")
 var {send_morning_time__send_night_time} = require("./../event-response-pairs/send_morning-time__send_night_time")
