@@ -3,37 +3,40 @@ var {callSendAPI} = require("./../handlers/callSendAPI")
 var {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
-moment().format();
+function runWeekCheck(){
+    moment().format();
 
-// var weekOfYear = moment().dayOfYear() / 7
-var weekOfYear = 2
+    // var weekOfYear = moment().dayOfYear() / 7
+    var weekOfYear = 2
 
-// function heyo(sender_id, res){
-//     console.log(sender_id)
-//     console.log(res)
-// }
+    // function heyo(sender_id, res){
+    //     console.log(sender_id)
+    //     console.log(res)
+    // }
 
-if(Number.isInteger(weekOfYear)){
-    careWeekly.find().then((docs) => {
-        for(i=0; i < docs.length; i++){
+    if(Number.isInteger(weekOfYear)){
+        careWeekly.find().then((docs) => {
+            for(i=0; i < docs.length; i++){
 
 
-            docs[i].myWeekDetails.push({
-                "week_number" : weekOfYear
-            })
-            docs[i].save().then((b) => {
-                console.log("success b")
-            })
+                docs[i].myWeekDetails.push({
+                    "week_number" : weekOfYear
+                })
+                docs[i].save().then((b) => {
+                    console.log("success b")
+                })
 
-            var response = {
-                "text" : `What's your week ${weekOfYear} goal?`
+                var response = {
+                    "text" : `What's your week ${weekOfYear} goal?`
+                }
+            callSendAPI(docs[i].sender_PSID, response)
+
             }
-           callSendAPI(docs[i].sender_PSID, response)
-
-        }
-    })
+        })
+    }
 }
 
+module.exports = {runWeekCheck}
 
 // var newUser = new careWeekly({sender_PSID : "2134"})
 // newUser.save().then((doc) => {
