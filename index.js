@@ -11,12 +11,13 @@ const app = express().use(bodyParser.json())
 const port = process.env.PORT
 const PAGE_ACCESS_TOKEN= "EAAHZCbQCoCS4BAKGQoWqEE9WoavLj3eP3wOgSHikNGylf0y6ktZAVxhXHdairO9g6ZC4x45giKmBzCsnBJhpQUZAPCTxUxG1ovMNmLhN7WchTX58ttLi5ihywoO2ZB9DrU45cV1ZCOU6obb2LZAZAaptGG4XOYQn3pGZAaxU4tfZCZAj7vH9MpvxL1f"
 
-while(1 === 1){
-    callSendAPI("1922770521175190", {"text" : "HEYASVY"})
-}
-
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
+    function boo(){
+        callSendAPI("1922770521175190", {"text" : "HEy fa"})
+    }
+    var intervalID = window.setInterval(boo(), 3000)
+    
     let body = req.body
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
