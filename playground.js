@@ -33,3 +33,12 @@ var sender_psid = "123"
             }
         })
         
+
+        var response
+        careWeekly.find({}).then((docs) => {
+            response = {
+                "text" : "heyJude"
+            }
+            return response
+        })
+        return response

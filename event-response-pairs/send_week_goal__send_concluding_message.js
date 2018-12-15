@@ -57,13 +57,12 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
 
             var response
             careWeekly.find({}).then((docs) => {
-                // response = {
-                //     "text" : "AWFaw"
-                // }
+                response = {
+                    "text" : "heyJude"
+                }
+                return response
             })
-            return response = {
-                "text" : "AWFaw"
-            }
+            return response
             // var response
             // return response = {
             //     "text" : "All settled now. Use the persistent menu to change your settings and see/edit your yearly goal. Your walk to success starts tomorrow!"

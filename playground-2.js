@@ -1,7 +1,6 @@
+var hey = 1
 
-
-function one_f(one){
-    global.one = one + 5
+function boo(hoo) {
+    console.log(hoo+1)
 }
 
-module.exports = {one_f}
