@@ -60,7 +60,6 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
                 response = {
                     "text" : "heyJude"
                 }
-                return response
             })
             return response
             // var response
