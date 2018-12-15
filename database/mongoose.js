@@ -9,7 +9,7 @@ var mongoose = require("mongoose")
 //   client.close();
 // });
 
-mongoose.connect("mongodb://yj:jugheadjones10@ds039484.mlab.com:39484/gvhcaregivers")
+mongoose.connect("mongodb://yj:jugheadjones10@ds039484.mlab.com:39484/gvhcaregivers", { useNewUrlParser: true })
 
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
