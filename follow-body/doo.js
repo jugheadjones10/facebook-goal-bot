@@ -8,10 +8,10 @@ moment().format();
 // var weekOfYear = moment().dayOfYear() / 7
 var weekOfYear = 2
 
-function heyo(sender_id, res){
-    console.log(sender_id)
-    console.log(res)
-}
+// function heyo(sender_id, res){
+//     console.log(sender_id)
+//     console.log(res)
+// }
 
 if(Number.isInteger(weekOfYear)){
     careWeekly.find().then((docs) => {
@@ -28,7 +28,7 @@ if(Number.isInteger(weekOfYear)){
             var response = {
                 "text" : `What's your week ${weekOfYear} goal?`
             }
-           heyo(docs[i].sender_PSID, response)
+           callSendAPI(docs[i].sender_PSID, response)
 
         }
     })
