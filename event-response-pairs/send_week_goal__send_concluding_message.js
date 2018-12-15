@@ -58,7 +58,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
             var response
             careWeekly.find({}).then((docs) => {
                 response = {
-                    "text" : docs.toString()
+                    "text" : "AWFaw"
                 }
             })
             return response 
