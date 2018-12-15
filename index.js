@@ -13,10 +13,10 @@ const PAGE_ACCESS_TOKEN= "EAAHZCbQCoCS4BAKGQoWqEE9WoavLj3eP3wOgSHikNGylf0y6ktZAV
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
-    function boo(){
-        callSendAPI("1922770521175190", {"text" : "HEy fa"})
-    }
-    var intervalID = window.setInterval(boo(), 3000)
+    // function boo(){
+    //     callSendAPI("1922770521175190", {"text" : "HEy fa"})
+    // }
+    // var intervalID = window.setInterval(boo(), 3000)
     
     let body = req.body
     // Checks this is an event from a page subscription
