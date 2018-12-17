@@ -48,7 +48,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
             })
             
             mornTime.then((moTime) => {
-                var futstartMoment = moment([2018, 11, 18, 0, 21])
+                var futstartMoment = moment([2018, 11, 18, 0, 26])
                 var theInterval =  futstartMoment.diff(moment(), "seconds") 
                 var intervalID = global.setTimeout(myCallback, theInterval)
                 function myCallback() {

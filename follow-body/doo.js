@@ -53,8 +53,8 @@ function dayTrainStarter(sender_psid, moTime){
                 callSendAPI(sender_psid, {
                     "text": "So how many goals did you complete today?"
                 })
-                secondLoop()
-                var intervalID2 = global.setTimeout(runWeekCheck(), 10000)
+                // secondLoop()
+                // var intervalID2 = global.setTimeout(runWeekCheck(), 10000)
             }
         }
 
