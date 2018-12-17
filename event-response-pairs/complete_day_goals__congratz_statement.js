@@ -7,7 +7,7 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
     if(received_message.text.split(" ").includes("completed")){
 
         var checker = received_message.text.split(" ")
-
+        console.log(checker)
         if(checker.includes(0)){
 
             careDaily.findOne({sender_PSID: sender_psid}).then(
@@ -23,7 +23,7 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
                     doc.save().then((doc) => {
                         console.log("success")
                     }, (e) => {
-                        console.log("ERROR")
+                        console.log(e)
                     })
                 },
                 (err) => {
