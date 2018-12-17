@@ -1,5 +1,7 @@
 const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
+var moment = require('moment')
+var {dayTrainStarter} = require("./../follow-body/doo")
 
 function send_week_goal__send_concluding_message(received_message, sender_psid){
 
@@ -35,40 +37,28 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
                 }
             )
 
-            ////////////testing///////////////////
-            
-            var newUser = new careWeekly({sender_PSID : "2134"})
-            newUser.save().then((doc) => {
-                    doc.myWeekDetails.push({
-                        "week_number" : 2,
-                        "week_goal" : "Whatever"
-                    })
+            moment().format()
 
-                    doc.save().then((doc) => {
-                        console.log("success")
-                    }, (e) => {
-                        console.log("ERROR")
-                    })
-                    
-                }, (e) => {
-                    console.log("ERROR")
+            var mornTime = careSetting.findOne({sender_PSID : sender_psid}).then((doc) => {
+                return doc.morning_time.split("a")[0]
+            }, (err) => {
+                console.log(err)
+            })
+            
+            mornTime.then((moTime) => {
+                var futstartMoment = moment([2018, 11, 17, moTime])
+                var theInterval =  futstartMoment.diff(moment(), "seconds") * 1000
+                var intervalID = global.setTimeout(myCallback, theInterval);
+                function myCallback() {
+                    // callSendAPI()
+                    dayTrainStarter(sender_psid, moTime)
                 }
-            )
+            })
 
             var response
-            var theDocs = careWeekly.find().then((docs) => {
-                return docs
-            })
-            console.log(theDocs)
-            response = {
-                "text" : theDocs
+            return response = {
+                "text" : "All settled now. Use the persistent menu to change your settings and see/edit your yearly goal. Your walk to success starts tomorrow!"
             }
-
-            return response
-            // var response
-            // return response = {
-            //     "text" : "All settled now. Use the persistent menu to change your settings and see/edit your yearly goal. Your walk to success starts tomorrow!"
-            // }
     
         }else{
             return undefined

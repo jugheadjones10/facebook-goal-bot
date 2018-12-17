@@ -6,18 +6,12 @@ var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 function runWeekCheck(){
     moment().format();
 
-    // var weekOfYear = moment().dayOfYear() / 7
+    // var weekOfYear = (moment().dayOfYear() + 7) / 7
     var weekOfYear = 2
-
-    // function heyo(sender_id, res){
-    //     console.log(sender_id)
-    //     console.log(res)
-    // }
 
     if(Number.isInteger(weekOfYear)){
         careWeekly.find().then((docs) => {
             for(i=0; i < docs.length; i++){
-
 
                 docs[i].myWeekDetails.push({
                     "week_number" : weekOfYear
@@ -37,7 +31,43 @@ function runWeekCheck(){
     }
 }
 
-module.exports = {runWeekCheck}
+function dayTrainStarter(sender_psid, moTime){
+    careSetting.findOne({sender_PSID: sender_psid}).then((doc) => {
+        var niTime = doc.night_time.split("p")[0]
+        // var dailyHourInterval = 12 + niTime - moTime
+        // var sleepInterval = 12 - niTime + moTime
+        var dailyHourInterval = 2
+        var sleepInterval = 2
+
+        function secondLoop(){
+            var intervalID2 = global.setTimeout(myCallback2, sleepInterval * 1000)
+            function myCallback2(){
+                callSendAPI(sender_psid, {
+                    "text": "So what are your goals for today?"
+                })
+                firstLoop()
+            }
+        }
+
+        function firstLoop(){
+            var intervalID = global.setTimeout(myCallback, dailyHourInterval * 1000)
+            function myCallback(){
+                callSendAPI(sender_psid, {
+                    "text": "So which of the goals did you complete today?"
+                })
+                secondLoop()
+            }
+        }
+
+        callSendAPI(sender_psid, {
+            "text":"Hi, welcome to day 1! What are your 2/3 goals for the day?"
+        })
+        firstLoop()
+       
+    })
+}
+
+module.exports = {runWeekCheck, dayTrainStarter}
 
 // var newUser = new careWeekly({sender_PSID : "2134"})
 // newUser.save().then((doc) => {

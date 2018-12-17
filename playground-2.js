@@ -15,38 +15,33 @@ var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// var newUser = new careWeekly({sender_PSID : "2134"})
-// newUser.save().then((doc) => {
-//         doc.myWeekDetails.push({
-//             "week_number" : 2,
-//             "week_goal" : "Whatever"
-//         })
+var moment = require("moment")
+moment().format()
 
-//         doc.save().then((doc) => {
-//             console.log("success")
-//         }, (e) => {
-//             console.log("ERROR")
-//         })
-        
-//     }, (e) => {
-//         console.log("ERROR")
-//     }
-// )
-
-// careWeekly.find().then((docs) => {
-//     console.log(docs[0].myWeekDetails)
-// })
+// function trainStarter(){
+//     callSendAPI()
+// }
 
 
 
-// var response
-// careWeekly.find().then((docs) => {
-//     response = {
-//         "text" : docs.toString()
-//     }
-//     console.log(response)
-// })
 
+var mornTime = careSetting.findOne({sender_PSID : "7000"}).then((doc) => {
+    return doc.morning_time.split("a")[0]
+}, (err) => {
+    console.log(err)
+})
+
+mornTime.then((moTime) => {
+    var futstartMoment = moment([2018, 11, 17, 11, 46])
+    var theInterval =  futstartMoment.diff(moment(), "seconds") * 1000
+    console.log(theInterval)
+    var intervalID = global.setTimeout(myCallback, theInterval);
+    function myCallback() {
+        console.log("het")
+        // callSendAPI()
+        // trainStarter()
+    }
+})
 
 
 module.exports = {
@@ -55,4 +50,3 @@ module.exports = {
 
 
 
-  
