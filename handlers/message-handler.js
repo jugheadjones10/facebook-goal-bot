@@ -6,7 +6,7 @@ var {send_morning_time__send_night_time} = require("./../event-response-pairs/se
 var {send_night_time__send_year_goal} = require("./../event-response-pairs/send_night_time__send_year_goal")
 var {send_year_goal__send_week_goal} = require("./../event-response-pairs/send_year_goal__send_week_goal")
 var {send_week_goal__send_concluding_message} = require("./../event-response-pairs/send_week_goal__send_concluding_message")
-var {dail_goal__congratz_statement} = require("./../event-response-pairs/daily_goal__congratz_statement")
+var {daily_goal__congratz_statement} = require("./../event-response-pairs/daily_goal__congratz_statement")
 
 function handleMessage(sender_psid, received_message) {
 
