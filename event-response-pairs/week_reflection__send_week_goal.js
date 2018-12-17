@@ -7,7 +7,7 @@ function week_reflection__send_week_goal(received_message, sender_psid){
 
     if(received_message.text.split(" ").includes("could")){
         //Improve criteria to run this callback
-        var week_of_year = 4
+        var week_of_year = 5
         careWeekly.findOne({sender_PSID: sender_psid}).then((doc) => {
             doc.myWeekDetails.forEach(function(ele){
                 if(ele.week_number === (week_of_year - 1)){

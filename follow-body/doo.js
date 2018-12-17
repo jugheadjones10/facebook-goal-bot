@@ -9,7 +9,7 @@ function runWeekCheck(){
     // var weekOfYear = (moment().dayOfYear() + 7) / 7
     function myCallback3(){
 
-        var weekOfYear = 4
+        var weekOfYear = 5
 
         if(Number.isInteger(weekOfYear)){
             careWeekly.find().then((docs) => {

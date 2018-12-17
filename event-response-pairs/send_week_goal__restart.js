@@ -8,8 +8,8 @@ function send_week_goal__restart(received_message, sender_psid){
         
         var checker = received_message.text.split("week", 2)
 
-        if(checker[0] === "My" && !checker[1].split(" ").includes("1")){
-            var week_of_year = 4
+        if(checker[0] === "My " && !checker[1].split(" ").includes("1")){
+            var week_of_year = 5
             careWeekly.findOne({sender_PSID: sender_psid}).then((doc) => {
                 doc.myWeekDetails.forEach(function(ele){
                     if(ele.week_number === (week_of_year)){
