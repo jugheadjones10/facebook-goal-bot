@@ -16,7 +16,7 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
                 })
                 
                 foundDay.daily_goals_conclusion = checker.find(function(yo){
-                    return parseInt(yo, 10) !== NaN
+                    return parseInt(yo, 10) 
                 })
 
                 doc.save().then((doc) => {
