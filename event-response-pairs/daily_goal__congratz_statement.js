@@ -24,8 +24,7 @@ function daily_goal__congratz_statement(received_message, sender_psid){
                 }else{
                     return doc
                 }
-            },
-            (e) => {
+            },(e) => {
                 console.log(e)
             }).then((doc) => {
                 doc.myDayDetails.push({
