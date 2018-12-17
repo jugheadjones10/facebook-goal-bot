@@ -5,27 +5,31 @@ var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
 function runWeekCheck(){
     moment().format();
-
+    var intervalID2 = setTimeout(myCallback3, 10000)
     // var weekOfYear = (moment().dayOfYear() + 7) / 7
-    var weekOfYear = 2
+    function myCallback3(){
 
-    if(Number.isInteger(weekOfYear)){
-        careWeekly.find().then((docs) => {
-            for(i=0; i < docs.length; i++){
+        var weekOfYear = 2
 
-                docs[i].myWeekDetails.push({
-                    "week_number" : weekOfYear
-                })
-                docs[i].save().then((b) => {
-                    console.log("success b")
-                })
-                
-                var response1 = {
-                    "text" : `How well did you achive your week ${weekOfYear - 1} goal? Where could you have improved?`
+        if(Number.isInteger(weekOfYear)){
+            careWeekly.find().then((docs) => {
+                for(i=0; i < docs.length; i++){
+    
+                    docs[i].myWeekDetails.push({
+                        "week_number" : weekOfYear
+                    })
+                    docs[i].save().then((b) => {
+                        console.log("success b")
+                    })
+                    
+                    var response1 = {
+                        "text" : `How well did you achive your week ${weekOfYear - 1} goal? Where could you have improved?`
+                    }
+                    callSendAPI(docs[i].sender_PSID, response1)
                 }
-                callSendAPI(docs[i].sender_PSID, response1)
-            }
-        })
+            })
+        }
+
     }
 }
 
@@ -53,8 +57,8 @@ function dayTrainStarter(sender_psid, moTime){
                 callSendAPI(sender_psid, {
                     "text": "So how many goals did you complete today?"
                 })
-                // secondLoop()
-                // var intervalID2 = global.setTimeout(runWeekCheck(), 10000)
+                secondLoop()
+                runWeekCheck()
             }
         }
 
