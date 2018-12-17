@@ -24,7 +24,7 @@ function daily_goal__congratz_statement(received_message, sender_psid){
 
             careDaily.findOne({sender_PSID: sender_psid}).then(
                 (doc) => {
-                    doc.myDailyDetails.push({
+                    doc.myDayDetails.push({
                         "day_of_year" : moment().dayOfYear(),
                         "daily_goals" : received_message.text
                     })
