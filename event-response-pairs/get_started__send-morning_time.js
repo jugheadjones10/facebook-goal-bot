@@ -4,11 +4,6 @@ var {careSetting, careDaily} = require("./../mongoose-schemas/one")
 function get_started__send_morning_time(received_message, sender_psid){
 
     if(received_message.text === "Get Started"){
-
-        function boo(){
-            callSendAPI("1922770521175190", {"text" : "HEy fa"})
-        }
-        var intervalID = window.setInterval(boo(), 3000)
     
         careSetting.findOne({sender_PSID: sender_psid}).then((doc) => {
             if(!doc){
