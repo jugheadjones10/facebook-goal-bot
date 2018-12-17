@@ -35,7 +35,7 @@ function daily_goal__congratz_statement(received_message, sender_psid){
                     doc.save().then((doc) => {
                         console.log("success")
                     }, (e) => {
-                        console.log("ERROR")
+                        console.log(e)
                     })
                 },
                 (e) => {
