@@ -2,7 +2,7 @@ const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily} = require("./../mongoose-schemas/one")
 var moment = require("moment")
 
-function complete_day_goals_congratz_statement(received_message, sender_psid){
+function complete_day_goals__congratz_statement(received_message, sender_psid){
 
     if(received_message.text.split(" ").includes("completed")){
 
