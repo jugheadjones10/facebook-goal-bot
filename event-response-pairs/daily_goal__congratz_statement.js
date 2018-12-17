@@ -12,7 +12,7 @@ function daily_goal__congratz_statement(received_message, sender_psid){
 
             careDaily.findOne({sender_PSID: sender_psid}).then((doc) => {
                 if(!doc){
-                    var newUser = new careWeekly({sender_PSID: sender_psid})
+                    var newUser = new careDaily({sender_PSID: sender_psid})
                     newUser.save().then((doc) => {
                             console.log("success")
                         }, (e) => {
@@ -22,7 +22,7 @@ function daily_goal__congratz_statement(received_message, sender_psid){
                 }
             })
 
-            careWeekly.findOne({sender_PSID: sender_psid}).then(
+            careDaily.findOne({sender_PSID: sender_psid}).then(
                 (doc) => {
                     doc.myDailyDetails.push({
                         "day_of_year" : moment().dayOfYear(),
