@@ -8,7 +8,7 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
 
         var checker = received_message.text.split(" ")
      
-        if(checker.includes("0")){
+        if(checker.includes("0" || "1" || "2" || "3")){
 
             careDaily.findOne({sender_PSID: sender_psid}).then((doc) => {
                 var foundDay = doc.myDayDetails.find(function(element){
@@ -16,7 +16,7 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
                 })
                 
                 foundDay.daily_goals_conclusion = checker.find(function(yo){
-                    return Number.isInteger(yo)
+                    return parseInt(yo, 10) !== NaN
                 })
 
                 doc.save().then((doc) => {
