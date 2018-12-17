@@ -19,13 +19,11 @@ function runWeekCheck(){
                 docs[i].save().then((b) => {
                     console.log("success b")
                 })
-
-                var response = {
-                    "text" : `What's your week ${weekOfYear} goal?`
+                
+                var response1 = {
+                    "text" : `How well did you achive your week ${weekOfYear - 1} goal? Where could you have improved?`
                 }
-
-                callSendAPI(docs[i].sender_PSID, response)
-
+                callSendAPI(docs[i].sender_PSID, response1)
             }
         })
     }
@@ -56,6 +54,7 @@ function dayTrainStarter(sender_psid, moTime){
                     "text": "So how many goals did you complete today?"
                 })
                 secondLoop()
+                var intervalID2 = global.setTimeout(runWeekCheck(), 10000)
             }
         }
 

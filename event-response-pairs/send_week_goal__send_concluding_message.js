@@ -48,12 +48,12 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
             })
             
             mornTime.then((moTime) => {
-                // var futstartMoment = moment([2018, 11, 17, moTime])
-                var futstartMoment = moment([2018, 11, 18, 0, 1])
+                var futstartMoment = moment([2019, 0, 17, moTime])
                 var theInterval =  futstartMoment.diff(moment(), "seconds") 
                 var intervalID = global.setTimeout(myCallback, theInterval)
                 function myCallback() {
                     dayTrainStarter(sender_psid, moTime)
+
                 }
             })
 
