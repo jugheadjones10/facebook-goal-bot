@@ -25,6 +25,9 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
                     }, (e) => {
                         console.log("ERROR")
                     })
+                },
+                (err) => {
+                    console.log(err)
                 }
             )
 

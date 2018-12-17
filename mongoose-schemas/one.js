@@ -25,7 +25,7 @@ var caregiverWeeklySchema = new mongoose.Schema({
 var careGiverDailySubDoc = new mongoose.Schema({
     day_of_year: Number,
     daily_goals: String,
-    daily_goals_conclusion: Number
+    daily_goals_conclusion:  Number
 })
 
 var caregiverDailySchema = new mongoose.Schema({

@@ -53,7 +53,7 @@ function dayTrainStarter(sender_psid, moTime){
             var intervalID = global.setTimeout(myCallback, dailyHourInterval * 1000)
             function myCallback(){
                 callSendAPI(sender_psid, {
-                    "text": "So which of the goals did you complete today?"
+                    "text": "So how many goals did you complete today?"
                 })
                 secondLoop()
             }

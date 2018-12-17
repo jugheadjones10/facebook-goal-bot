@@ -18,20 +18,54 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var moment = require("moment")
 moment().format()
 
-careWeekly.findOne({sender_PSID: 2134}).then(
+// var newUser = new careDaily({sender_PSID: "9000"})
+// newUser.save().then((doc) => {
+//         console.log("success")
+//     }, (e) => {
+//         console.log("ERROR")
+//     }
+// )
+
+careDaily.findOne({sender_PSID: "9000"}).then(
     (doc) => {
-        var found = doc.myWeekDetails.find(function(element){
-            return element.week_number = 2
+        doc.myDayDetails.push({
+            "day_of_year" : moment().dayOfYear(),
+            "daily_goals" : "Goal1:awdaw asd"
         })
-        console.log(found)
 
         doc.save().then((doc) => {
             console.log("success")
         }, (e) => {
             console.log("ERROR")
         })
+    },
+    (err) => {
+        console.log("AWDAW")
     }
 )
+
+var checker = ["I", 2, "completed"]
+careDaily.findOne({sender_PSID: "9000"}).then(
+    (doc) => {
+        var foundDay = doc.myDayDetails.find(function(element){
+            return element.day_of_year = moment().dayOfYear()
+        })
+     
+        foundDay.daily_goals_conclusion = checker.find(function(yo){
+            return Number.isInteger(yo)
+        })
+
+        doc.save().then((doc) => {
+            console.log("success")
+        }, (err) => {
+            console.log(err)
+        })
+    },
+    (err) => {
+        console.log(err)
+    }
+)
+
 
 module.exports = {
     mongoose
