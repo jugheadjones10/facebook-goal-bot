@@ -7,8 +7,18 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
     if(received_message.text.split(" ").includes("completed")){
 
         var checker = received_message.text.split(" ")
-     
-        if(checker.includes("0" || "1" || "2" || "3")){
+        
+        function intChecker(inArray, arr2){
+            var mo = 0
+            inArray.forEach(function(ele){
+                if(arr2.includes(ele)){
+                    mo = mo + 1
+                }
+            })
+            return mo
+        }
+
+        if(intChecker(checker, ["0", "1", "2", "3"]) === 1){
 
             careDaily.findOne({sender_PSID: sender_psid}).then((doc) => {
                 var foundDay = doc.myDayDetails.find(function(element){
