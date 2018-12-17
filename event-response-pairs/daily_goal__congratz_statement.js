@@ -14,6 +14,7 @@ function daily_goal__congratz_statement(received_message, sender_psid){
                 if(!doc){
                     var newUser = new careDaily({sender_PSID: sender_psid})
                     var doc2 = newUser.save().then((doc) => {
+                            return doc
                             console.log("success")
                         }, (e) => {
                             console.log("ERROR")
