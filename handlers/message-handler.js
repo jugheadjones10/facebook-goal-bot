@@ -24,7 +24,7 @@ function handleMessage(sender_psid, received_message) {
             send_night_time__send_year_goal(received_message, sender_psid),
             send_year_goal__send_week_goal(received_message, sender_psid),
             send_week_goal__send_concluding_message(received_message, sender_psid),
-            dail_goal__congratz_statement(received_message, sender_psid)
+            daily_goal__congratz_statement(received_message, sender_psid)
         ]
 
         hey.forEach(function(res){
