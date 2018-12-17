@@ -6,6 +6,7 @@ var {send_morning_time__send_night_time} = require("./../event-response-pairs/se
 var {send_night_time__send_year_goal} = require("./../event-response-pairs/send_night_time__send_year_goal")
 var {send_year_goal__send_week_goal} = require("./../event-response-pairs/send_year_goal__send_week_goal")
 var {send_week_goal__send_concluding_message} = require("./../event-response-pairs/send_week_goal__send_concluding_message")
+var {dail_goal__congratz_statement} = require("./../event-response-pairs/daily_goal__congratz_statement")
 
 function handleMessage(sender_psid, received_message) {
 
@@ -22,7 +23,8 @@ function handleMessage(sender_psid, received_message) {
             send_morning_time__send_night_time(received_message, sender_psid),
             send_night_time__send_year_goal(received_message, sender_psid),
             send_year_goal__send_week_goal(received_message, sender_psid),
-            send_week_goal__send_concluding_message(received_message, sender_psid)
+            send_week_goal__send_concluding_message(received_message, sender_psid),
+            dail_goal__congratz_statement(received_message, sender_psid)
         ]
 
         hey.forEach(function(res){

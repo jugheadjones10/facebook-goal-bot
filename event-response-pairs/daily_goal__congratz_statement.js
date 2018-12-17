@@ -40,7 +40,7 @@ function daily_goal__congratz_statement(received_message, sender_psid){
         
             var response
             return response = {
-                "text" : "Awesome. Let's start with week 1. What smaller goal do you have for this coming week? Type 'My week 1 goal is ...'"
+                "text" : "Nice! Work hard! I'll be back at the end of the day to ask questions!"
             }
     
         }else{
@@ -52,4 +52,4 @@ function daily_goal__congratz_statement(received_message, sender_psid){
     }
 }
 
-module.exports = {send_year_goal__send_week_goal}
+module.exports = {daily_goal__congratz_statement}
