@@ -20,6 +20,9 @@ function daily_goal__congratz_statement(received_message, sender_psid){
                         }
                     )
                 }
+            },
+            (e) => {
+                console.log(e)
             })
 
             careDaily.findOne({sender_PSID: sender_psid}).then(
