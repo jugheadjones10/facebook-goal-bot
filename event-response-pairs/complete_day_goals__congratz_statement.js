@@ -10,12 +10,14 @@ function complete_day_goals_congratz_statement(received_message, sender_psid){
 
         if(checker.includes(0 || 1 || 2 || 3)){
 
-            careDaily.findOne({sender_PSID: sender_psid}, {myDayDetails : {day_of_year : moment().dayOfYear()}}).then(
+            careDaily.findOne({sender_PSID: sender_psid}).then(
                 (doc) => {
-                    console.log(doc)
-                    doc.myDayDetails.push({
-                        "day_of_year" : moment().dayOfYear(),
-                        "daily_goals" : received_message.text
+                    var foundDay = doc.myDayDetails.find(function(element){
+                        return element.day_of_year = moment().dayOfYear()
+                    })
+                    
+                    foundDay.daily_goals_conclusion = checker.find(function(yo){
+                        return Number.isInteger(yo)
                     })
 
                     doc.save().then((doc) => {
@@ -29,7 +31,7 @@ function complete_day_goals_congratz_statement(received_message, sender_psid){
         
             var response
             return response = {
-                "text" : "Nice! Work hard! I'll be back at the end of the day to ask questions!"
+                "text" : "Good Job! Keep it up! I'll message you tomorrow morning!"
             }
     
         }else{
@@ -41,4 +43,4 @@ function complete_day_goals_congratz_statement(received_message, sender_psid){
     }
 }
 
-module.exports = {daily_goal__congratz_statement}
+module.exports = {complete_day_goals__congratz_statement}
