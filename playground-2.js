@@ -18,11 +18,37 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var moment = require("moment")
 moment().format()
 
-// function trainStarter(){
-//     callSendAPI()
-// }
+function dayTrainStarter(sender_psid, moTime){
+    careSetting.findOne({sender_PSID: sender_psid}).then((doc) => {
+        var niTime = doc.night_time.split("p")[0]
+        // var dailyHourInterval = 12 + niTime - moTime
+        // var sleepInterval = 12 - niTime + moTime
+        var dailyHourInterval = 2
+        var sleepInterval = 2
 
+        function secondLoop(){
+            var intervalID2 = global.setTimeout(myCallback2, sleepInterval * 1000)
+            function myCallback2(){
+                console.log("So what are your goals for today?")
+                
+                firstLoop()
+            }
+        }
 
+        function firstLoop(){
+            var intervalID = global.setTimeout(myCallback, dailyHourInterval * 1000)
+            function myCallback(){
+                console.log("So which of the goals did you complete today?")
+                
+                secondLoop()
+            }
+        }
+
+        console.log("Hi, welcome to day 1! What are your 2/3 goals for the day?")
+        
+        firstLoop()
+    })
+}
 
 
 var mornTime = careSetting.findOne({sender_PSID : "7000"}).then((doc) => {
@@ -32,17 +58,16 @@ var mornTime = careSetting.findOne({sender_PSID : "7000"}).then((doc) => {
 })
 
 mornTime.then((moTime) => {
-    var futstartMoment = moment([2018, 11, 17, 11, 46])
+    console.log(moTime)
+    // var futstartMoment = moment([2018, 11, 17, moTime])
+    var futstartMoment = moment([2018, 11, 17, 12, 39])
     var theInterval =  futstartMoment.diff(moment(), "seconds") * 1000
-    console.log(theInterval)
     var intervalID = global.setTimeout(myCallback, theInterval);
     function myCallback() {
-        console.log("het")
         // callSendAPI()
-        // trainStarter()
+        dayTrainStarter("7000", moTime)
     }
 })
-
 
 module.exports = {
     mongoose

@@ -63,7 +63,6 @@ function dayTrainStarter(sender_psid, moTime){
             "text":"Hi, welcome to day 1! What are your 2/3 goals for the day?"
         })
         firstLoop()
-       
     })
 }
 
