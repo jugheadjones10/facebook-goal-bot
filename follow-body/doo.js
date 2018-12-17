@@ -23,7 +23,7 @@ function runWeekCheck(){
                     })
                     
                     var response1 = {
-                        "text" : `How well did you achive your week ${weekOfYear - 1} goal? Where could you have improved?`
+                        "text" : `How well did you achieve your week ${weekOfYear - 1} goal? Where could you have improved?`
                     }
                     callSendAPI(docs[i].sender_PSID, response1)
                 }

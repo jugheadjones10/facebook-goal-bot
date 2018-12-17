@@ -9,7 +9,8 @@ var {send_week_goal__send_concluding_message} = require("./../event-response-pai
 var {daily_goal__congratz_statement} = require("./../event-response-pairs/daily_goal__congratz_statement")
 var {complete_day_goals__congratz_statement} = require("./../event-response-pairs/complete_day_goals__congratz_statement")
 var {week_reflection__send_week_goal} = require("./../event-response-pairs/week_reflection__send_week_goal")
-
+var {send_week_goal__restart} = require("./../event-response-pairs/send_week_goal__restart")
+ 
 function handleMessage(sender_psid, received_message) {
 
     // Check if the message contains text
@@ -28,7 +29,8 @@ function handleMessage(sender_psid, received_message) {
             send_week_goal__send_concluding_message(received_message, sender_psid),
             daily_goal__congratz_statement(received_message, sender_psid),
             complete_day_goals__congratz_statement(received_message, sender_psid),
-            week_reflection__send_week_goal(received_message, sender_psid)
+            week_reflection__send_week_goal(received_message, sender_psid),
+            send_week_goal__restart(received_message, sender_psid)
         ]
 
         hey.forEach(function(res){
