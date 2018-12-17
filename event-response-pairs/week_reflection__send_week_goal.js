@@ -12,6 +12,7 @@ function week_reflection__send_week_goal(received_message, sender_psid){
             doc.myWeekDetails.forEach(function(ele){
                 if(ele.week_number === (week_of_year - 1)){
                     ele.week_goal_conclusion = received_message.text
+                    console.log(ele)
                 }
             })
         })
