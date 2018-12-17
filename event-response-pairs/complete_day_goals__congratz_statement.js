@@ -19,7 +19,7 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
                     foundDay.daily_goals_conclusion = checker.find(function(yo){
                         return Number.isInteger(yo)
                     })
-
+                    console.log(founder)
                     doc.save().then((doc) => {
                         console.log("success")
                     }, (e) => {

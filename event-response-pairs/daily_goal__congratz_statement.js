@@ -34,6 +34,9 @@ function daily_goal__congratz_statement(received_message, sender_psid){
                     }, (e) => {
                         console.log("ERROR")
                     })
+                },
+                (e) => {
+                    console.log(e)
                 }
             )
 
