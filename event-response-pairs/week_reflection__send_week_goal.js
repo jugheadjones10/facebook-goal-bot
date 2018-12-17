@@ -11,7 +11,7 @@ function week_reflection__send_week_goal(received_message, sender_psid){
         careWeekly.findOne({sender_PSID: sender_psid}).then((doc) => {
             doc.myWeekDetails.forEach(function(ele){
                 if(ele.week_number === (week_of_year - 1)){
-                    ele.myWeekDetails.week_goal_conclusion = received_message.text
+                    ele.week_goal_conclusion = received_message.text
                 }
             })
         })

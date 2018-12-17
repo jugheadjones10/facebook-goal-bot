@@ -10,7 +10,10 @@ var caregiverSettingSchema = new mongoose.Schema({
 
 var careGiverWeekSubDoc = new mongoose.Schema({
     week_number: Number,
-    week_goal: String,
+    week_goal: {
+        type: String,
+        default: " "
+    },
     week_goal_conclusion: {
         type: String,
         default: " "
