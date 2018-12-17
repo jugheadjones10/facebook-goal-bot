@@ -30,7 +30,10 @@ var careGiverDailySubDoc = new mongoose.Schema({
 
 var caregiverDailySchema = new mongoose.Schema({
     sender_PSID: String,
-    myDayDetails: [careGiverDailySubDoc]
+    myDayDetails: {
+        type: [careGiverDailySubDoc],
+        default: []
+    }
 })
 
 var careSetting = mongoose.model("careSetting", caregiverSettingSchema)

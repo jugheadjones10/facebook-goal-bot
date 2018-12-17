@@ -18,53 +18,35 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var moment = require("moment")
 moment().format()
 
-// var newUser = new careDaily({sender_PSID: "9000"})
-// newUser.save().then((doc) => {
-//         console.log("success")
-//     }, (e) => {
-//         console.log("ERROR")
-//     }
-// )
+careWeekly.findOne({sender_PSID: "9000"}).then((doc) => {
+    if(!doc){
+        var newUser = new careWeekly({sender_PSID: "9000"})
+        var doc2 = newUser.save().then((doc) => {
+                console.log("success")
+                return doc
+            }, (e) => {
+                console.log("ERROR")
+            }
+        )
+        return doc2
+    }else{
+        return doc
+    }  
+}).then((doc) => {
+    doc.myWeekDetails.push({
+        "week_number" : 1,
+        "week_goal" : "Hye budy"
+    })
 
-careDaily.findOne({sender_PSID: "9000"}).then(
-    (doc) => {
-        doc.myDayDetails.push({
-            "day_of_year" : moment().dayOfYear(),
-            "daily_goals" : "Goal1:awdaw asd"
-        })
+    doc.save().then((doc) => {
+        console.log("success")
+    }, (e) => {
+        console.log("ERROR")
+    })
+}, (e) => {
+    console.log(e)
+})
 
-        doc.save().then((doc) => {
-            console.log("success")
-        }, (e) => {
-            console.log("ERROR")
-        })
-    },
-    (err) => {
-        console.log("AWDAW")
-    }
-)
-
-var checker = ["I", 2, "completed"]
-careDaily.findOne({sender_PSID: "9000"}).then(
-    (doc) => {
-        var foundDay = doc.myDayDetails.find(function(element){
-            return element.day_of_year = moment().dayOfYear()
-        })
-     
-        foundDay.daily_goals_conclusion = checker.find(function(yo){
-            return Number.isInteger(yo)
-        })
-
-        doc.save().then((doc) => {
-            console.log("success")
-        }, (err) => {
-            console.log(err)
-        })
-    },
-    (err) => {
-        console.log(err)
-    }
-)
 
 
 module.exports = {

@@ -13,36 +13,33 @@ function daily_goal__congratz_statement(received_message, sender_psid){
             careDaily.findOne({sender_PSID: sender_psid}).then((doc) => {
                 if(!doc){
                     var newUser = new careDaily({sender_PSID: sender_psid})
-                    newUser.save().then((doc) => {
+                    var doc2 = newUser.save().then((doc) => {
                             console.log("success")
                         }, (e) => {
                             console.log("ERROR")
                         }
                     )
+                    return doc2
+                }else{
+                    return doc
                 }
             },
             (e) => {
                 console.log(e)
-            })
+            }).then((doc) => {
+                doc.myDayDetails.push({
+                    "day_of_year" : moment().dayOfYear(),
+                    "daily_goals" : received_message.text
+                })
 
-            careDaily.findOne({sender_PSID: sender_psid}).then(
-                (doc) => {
-                    doc.myDayDetails.push({
-                        "day_of_year" : moment().dayOfYear(),
-                        "daily_goals" : received_message.text
-                    })
-
-                    doc.save().then((doc) => {
-                        console.log("success")
-                    }, (e) => {
-                        console.log(e)
-                    })
-                },
-                (e) => {
+                doc.save().then((doc) => {
+                    console.log("success")
+                }, (e) => {
                     console.log(e)
-                }
-            )
-
+                })
+            }, (e) =>{
+                console.log(e)
+            })
         
             var response
             return response = {
