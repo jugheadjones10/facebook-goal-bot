@@ -1,5 +1,5 @@
 
-var checker = ["awda", "awd", "45"]
+var checker = ["awda", "awd", "45", "AWda"]
 
 
 
