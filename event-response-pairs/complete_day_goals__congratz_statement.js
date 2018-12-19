@@ -24,11 +24,11 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
                 var foundDay = doc.myDayDetails.find(function(element){
                     return element.day_of_year = moment().dayOfYear()
                 })
-                console.log(foundDay)
+               
                 foundDay.daily_goals_conclusion = checker.find(function(yo){
                     return parseInt(yo, 10) 
                 })
-                console.log(foundDay)
+    
                 doc.save().then((doc) => {
                     console.log("success")
                 }, (e) => {
