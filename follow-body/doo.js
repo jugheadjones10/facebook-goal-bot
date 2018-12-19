@@ -21,6 +21,7 @@ function runWeekCheck(){
                     docs[i].save().then((b) => {
                         console.log("success b")
                     })
+                    //Pushing the new myWeekDetail may be unnecessary
                     
                     var response1 = {
                         "text" : `How well did you achieve your week ${weekOfYear - 1} goal? Where could you have improved?`
