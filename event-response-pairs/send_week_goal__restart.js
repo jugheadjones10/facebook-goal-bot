@@ -12,7 +12,7 @@ function send_week_goal__restart(received_message, sender_psid){
             //var week_of_year = (moment().dayOfYear() + 7)/7
             var week_of_year = 2
 
-            doc.myWeekDetails.forEach(ele => {
+            doc.myWeekDetails.forEach(function(ele){
                 if(ele.week_number ===  week_of_year){
                     ele.week_goal = received_message.text
 
