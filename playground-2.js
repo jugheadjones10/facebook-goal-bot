@@ -18,26 +18,18 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var moment = require("moment")
 moment().format()
 
-
-
-// var returnedDoc = careWeekly.findOne({sender_PSID: "6969"}).then((doc) => {
-//     if(!doc){
-//         var newUser = new careWeekly({sender_PSID: "6969"})
-//         var doc2 = newUser.save().then((doc) => {
-//                 console.log("success")
-//                 return doc
-//             }, (e) => {
-//                 console.log("ERROR")
-//             }
-//         )
-//         return doc2
-//     }else{
+// var newUser = new careWeekly({sender_PSID: "6969"})
+// var doc2 = newUser.save().then((doc) => {
+//         console.log("success")
 //         return doc
+//     }, (e) => {
+//         console.log("ERROR")
 //     }
-// }).then((doc) => {
+// )
+// doc2.then((doc) => {
 //     doc.myWeekDetails.push({
 //         "week_number" : 1,
-//         "week_goal" : "My week 1 goal is to fap less"
+//         "week_goal" : "Week 1 goal is to get a gf"
 //     })
 
 //     doc.save().then((doc) => {
@@ -45,44 +37,73 @@ moment().format()
 //     }, (e) => {
 //         console.log("ERROR")
 //     })
-
-//     return doc
-// }, (e) => {
-//     console.log(e)
 // })
 
-// returnedDoc.then((doc) => {
-//     var boo = "I could have fapped less"
-//     if(boo.split(" ").includes("could")){
-//         //Improve criteria to run this callback
-//         //var week_of_year = (moment().dayOfYear() + 7)/7
-//         var week_of_year = 2
 
-//         careWeekly.findOne({sender_PSID: "6969"}).then((doc) => {
-//             doc.myWeekDetails.forEach(function(ele){
-//                 if(ele.week_number === (week_of_year - 1)){
-//                     ele.week_goal_conclusion = boo
-//                 }
-//             })
-//         })
-//     }
-// })
+var boo = "My week 2 goal srgdgfap less"
+
+if(boo.split(" ").includes("week")){
         
-var boo = "I could have fapped less"
-careWeekly.findOne({sender_PSID: "6969"}).then((doc) => {
-    doc.myWeekDetails.forEach(function(ele){
-        if(ele.week_number === (1)){
-            ele.week_goal_conclusion = boo
-        }
-    })
+    var checker = boo.split("week", 2)
 
-    doc.save().then((doc) => {
-        console.log("success")
-    }, (e) => {
-        console.log(e)
-    })
-})
-console.log("success")
+    if(checker[0] === "My " && !checker[1].split(" ").includes("1")){
+        //var week_of_year = (moment().dayOfYear() + 7)/7
+        var week_of_year = 2
+        careWeekly.findOne({sender_PSID: "6969"}).then((doc) => {
+
+            doc.myWeekDetails.forEach(ele => {
+                if(ele.week_number ===  week_of_year){
+                    ele.week_goal = boo
+
+                    doc.save().then((doc) => {
+                        console.log("success")
+                    }, (e) => {
+                        console.log("ERROR")
+                    })
+                }else{
+                    doc.myWeekDetails.push({
+                        "week_number" : week_of_year,
+                        "week_goal" : boo
+                    })
+    
+                    doc.save().then((doc) => {
+                        console.log("success")
+                    }, (e) => {
+                        console.log("ERROR")
+                    })
+                }
+            })
+
+            // console.log(foundWeek)
+            // if(!foundWeek){
+            //     doc.myWeekDetails.push({
+            //         "week_number" : week_of_year,
+            //         "week_goal" : boo
+            //     })
+
+            //     doc.save().then((doc) => {
+            //         console.log("success")
+            //     }, (e) => {
+            //         console.log("ERROR")
+            //     })
+            // }else{
+            //     foundWeek.week_goal = boo
+
+            //     doc.save().then((doc) => {
+            //         console.log("success")
+            //     }, (e) => {
+            //         console.log("ERROR")
+            //     })
+            // }
+        }, (e) => {
+            console.log(e)
+        })
+
+    }else{
+        console.log("fail")
+    }
+
+}
 
 
 module.exports = {
