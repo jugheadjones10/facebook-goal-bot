@@ -95,6 +95,7 @@ if(boo.split(" ").includes("week")){
             //         console.log("ERROR")
             //     })
             // }
+            
         }, (e) => {
             console.log(e)
         })
