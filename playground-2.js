@@ -18,56 +18,71 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var moment = require("moment")
 moment().format()
 
-var received_message = "My week 5 goal is to"
-if(received_message.split(" ").includes("week")){
-        
-    var checker = received_message.split("week", 2)
 
-    if(checker[0] === "My " && !checker[1].split(" ").includes("1")){
-        var week_of_year = 5
-        careWeekly.findOne({sender_PSID: "9000"}).then((doc) => {
-            console.log(doc)
-            doc.myWeekDetails.forEach(function(ele){
-                if(ele.week_number === week_of_year){
-                    ele.week_goal = received_message
-                }
-            })
-            console.log(doc)
-        })  
 
-    }
-}
-// function intChecker(inArray, arr2){
-//     var mo = 0
-//     inArray.forEach(function(ele){
-//         if(arr2.includes(ele)){
-//             mo = mo + 1
-//         }
+// var returnedDoc = careWeekly.findOne({sender_PSID: "6969"}).then((doc) => {
+//     if(!doc){
+//         var newUser = new careWeekly({sender_PSID: "6969"})
+//         var doc2 = newUser.save().then((doc) => {
+//                 console.log("success")
+//                 return doc
+//             }, (e) => {
+//                 console.log("ERROR")
+//             }
+//         )
+//         return doc2
+//     }else{
+//         return doc
+//     }
+// }).then((doc) => {
+//     doc.myWeekDetails.push({
+//         "week_number" : 1,
+//         "week_goal" : "My week 1 goal is to fap less"
 //     })
-//     return mo
-// }
-// var checker = ["I", "2", "completed"]
 
-// if(intChecker(checker, ["0", "1", "2", "3"]) === 1){
-
-//     careDaily.findOne({sender_PSID: "9000"}).then((doc) => {
-//         var foundDay = doc.myDayDetails.find(function(element){
-//             return element.day_of_year = moment().dayOfYear()
-//         })
-        
-//         foundDay.daily_goals_conclusion = checker.find(function(yo){
-//             return parseInt(yo, 10) 
-//         })
-    
-//         doc.save().then((doc) => {
-//             console.log("success")
-//         }, (e) => {
-//             console.log(e)
-//         })
-//     },(err) => {
-//             console.log(err)
+//     doc.save().then((doc) => {
+//         console.log("success")
+//     }, (e) => {
+//         console.log("ERROR")
 //     })
-// }
+
+//     return doc
+// }, (e) => {
+//     console.log(e)
+// })
+
+// returnedDoc.then((doc) => {
+//     var boo = "I could have fapped less"
+//     if(boo.split(" ").includes("could")){
+//         //Improve criteria to run this callback
+//         //var week_of_year = (moment().dayOfYear() + 7)/7
+//         var week_of_year = 2
+
+//         careWeekly.findOne({sender_PSID: "6969"}).then((doc) => {
+//             doc.myWeekDetails.forEach(function(ele){
+//                 if(ele.week_number === (week_of_year - 1)){
+//                     ele.week_goal_conclusion = boo
+//                 }
+//             })
+//         })
+//     }
+// })
+        
+var boo = "I could have fapped less"
+careWeekly.findOne({sender_PSID: "6969"}).then((doc) => {
+    doc.myWeekDetails.forEach(function(ele){
+        if(ele.week_number === (1)){
+            ele.week_goal_conclusion = boo
+        }
+    })
+
+    doc.save().then((doc) => {
+        console.log("success")
+    }, (e) => {
+        console.log(e)
+    })
+})
+console.log("success")
 
 
 module.exports = {

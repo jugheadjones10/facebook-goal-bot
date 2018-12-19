@@ -16,6 +16,12 @@ function week_reflection__send_week_goal(received_message, sender_psid){
                     ele.week_goal_conclusion = received_message.text
                 }
             })
+
+            doc.save().then((doc) => {
+                console.log("success")
+            }, (e) => {
+                console.log(e)
+            })
         })
 
         var response
