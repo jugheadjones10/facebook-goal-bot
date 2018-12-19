@@ -3,32 +3,21 @@ var {callSendAPI} = require("./../handlers/callSendAPI")
 var {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
-function runWeekCheck(){
+function runWeekCheck(sender_psid){
     moment().format();
     var intervalID2 = setTimeout(myCallback3, 10000)
     // var weekOfYear = (moment().dayOfYear() + 7) / 7
     function myCallback3(){
 
-        var weekOfYear = 5
+        var weekOfYear = 2
 
         if(Number.isInteger(weekOfYear)){
-            careWeekly.find().then((docs) => {
-                for(i=0; i < docs.length; i++){
-    
-                    docs[i].myWeekDetails.push({
-                        "week_number" : weekOfYear
-                    })
-                    docs[i].save().then((b) => {
-                        console.log("success b")
-                    })
-                    //Pushing the new myWeekDetail may be unnecessary
-                    
-                    var response1 = {
-                        "text" : `How well did you achieve your week ${weekOfYear - 1} goal? Where could you have improved?`
-                    }
-                    callSendAPI(docs[i].sender_PSID, response1)
-                }
-            })
+        
+            var response1 = {
+                "text" : `How well did you achieve your week ${weekOfYear - 1} goal? Where could you have improved?`
+            }
+            callSendAPI(sender_psid, response1)
+                
         }
 
     }
@@ -59,7 +48,7 @@ function dayTrainStarter(sender_psid, moTime){
                     "text": "So how many goals did you complete today?"
                 })
                 secondLoop()
-                runWeekCheck()
+                runWeekCheck(sender_psid)
             }
         }
 
