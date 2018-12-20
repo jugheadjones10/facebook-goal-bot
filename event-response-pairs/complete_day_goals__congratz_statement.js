@@ -12,9 +12,7 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
                     return element.day_of_year = moment().dayOfYear()
                 })
                
-                foundDay.daily_goals_conclusion = checker.find(function(yo){
-                    return parseInt(yo, 10) 
-                })
+                foundDay.daily_goals_conclusion = parseInt(bo, 10)
     
                 doc.save().then((doc) => {
                     console.log("success")
