@@ -2,28 +2,21 @@ const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily} = require("./../mongoose-schemas/one")
 
 function send_year_goal__send_week_goal(received_message, sender_psid){
-
-    if(received_message.text.split(" ").includes("2019")){
+    var msg = received_message.text.split("")
+    if(msg.includes(":") && (msg[0] === "g" || msg[0] === "G")){
         
-        var checker = received_message.text.split("2019", 1)
-
-        if(checker[0] === "My goal for "){
-            careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {yearly_goal: received_message.text}}).then((doc) => {
-                console.log("success")
-                }, (e) => {
-                console.log("ERROR")
-                }
-            )
-        
-            var response
-            return response = {
-                "text" : "Awesome. Let's start with week 1. What smaller goal do you have for this coming week? Type 'My week 1 goal is ...'"
+        careSetting.findOneAndUpdate({sender_PSID: sender_psid}, {$set: {yearly_goal: received_message.text}}).then((doc) => {
+            console.log("success")
+            }, (e) => {
+            console.log("ERROR")
             }
+        )
     
-        }else{
-            return undefined
+        var response
+        return response = {
+            "text" : "Awesome. Let's start small. What's your first weekly goal? Reply like this - Week 1 : to buy materials"
         }
-
+    
     }else{
         return undefined
     }

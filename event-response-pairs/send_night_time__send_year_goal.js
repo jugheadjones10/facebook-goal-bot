@@ -13,7 +13,7 @@ function send_night_time__send_year_goal(received_message, sender_psid){
         
             var response
             return response = {
-                "text" : "Great! What is your big goal for 2019? Type 'My goal for 2019 is ...'",
+                "text" : "Great! What is your goal for 2019? Reply like this - Goal: to open a grocery store",
             }
     
         }else{
@@ -23,7 +23,6 @@ function send_night_time__send_year_goal(received_message, sender_psid){
     }else{
         return undefined
     }
-  
 
 }
 

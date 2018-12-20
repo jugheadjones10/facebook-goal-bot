@@ -5,21 +5,18 @@ var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
 function runWeekCheck(sender_psid){
     moment().format();
-    var intervalID2 = setTimeout(myCallback3, 10000)
+    var intervalID2 = setTimeout(myCallback3, 20000)
     // var weekOfYear = (moment().dayOfYear() + 7) / 7
     function myCallback3(){
 
         var weekOfYear = 2
 
         if(Number.isInteger(weekOfYear)){
-        
             var response1 = {
-                "text" : `How well did you achieve your week ${weekOfYear - 1} goal? Where could you have improved?`
+                "text" : `How well did you achieve your week ${weekOfYear - 1} goal? Where could you have improved? Reply like this - Reflection: I completed my weekly goal, but could have spent less time on Facebook`
             }
             callSendAPI(sender_psid, response1)
-                
         }
-
     }
 }
 
@@ -35,7 +32,7 @@ function dayTrainStarter(sender_psid, moTime){
             var intervalID2 = global.setTimeout(myCallback2, sleepInterval * 1000)
             function myCallback2(){
                 callSendAPI(sender_psid, {
-                    "text": "So what are your goals for today?"
+                    "text": "Morning! What are your goals for today? Reply like this - 1: phone a business friend, 2: set up facebook page"
                 })
                 firstLoop()
             }
@@ -44,8 +41,33 @@ function dayTrainStarter(sender_psid, moTime){
         function firstLoop(){
             var intervalID = global.setTimeout(myCallback, dailyHourInterval * 1000)
             function myCallback(){
+
                 callSendAPI(sender_psid, {
-                    "text": "So how many goals did you complete today?"
+                    //Next time, add in custom ticking of completed tasks, not just the number of completed tasks
+                    "text": "So how many of your tasks did you complete today?",
+                    "quick_replies":[
+                        {
+                            "content_type":"text",
+                            "title":"0",
+                            "payload":"0"
+                        },
+                        {
+                            "content_type":"text",
+                            "title":"1",
+                            "payload":"1"
+                        },
+                        {
+                            "content_type":"text",
+                            "title":"2",
+                            "payload":"2"
+                        },
+                        {
+                            "content_type":"text",
+                            "title":"3",
+                            "payload":"3"
+                        }         
+                    ]
+                    
                 })
                 secondLoop()
                 runWeekCheck(sender_psid)
@@ -53,7 +75,7 @@ function dayTrainStarter(sender_psid, moTime){
         }
 
         callSendAPI(sender_psid, {
-            "text":"Hi, welcome to day 1! What are your 2/3 goals for the day?"
+            "text":"Welcome to day 1! What are your tasks for the day? Reply like this - 1: phone a business friend, 2: set up facebook page"
         })
         firstLoop()
     })

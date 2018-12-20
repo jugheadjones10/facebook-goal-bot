@@ -5,7 +5,7 @@ var moment = require('moment')
 
 function week_reflection__send_week_goal(received_message, sender_psid){
 
-    if(received_message.text.split(" ").includes("could")){
+    if(received_message.text.split(" ")[0] === "Reflection" || received_message.text.split(" ")[0] === "reflection"){
         //Improve criteria to run this callback
         //var week_of_year = (moment().dayOfYear() + 7)/7
         var week_of_year = 2
@@ -26,10 +26,9 @@ function week_reflection__send_week_goal(received_message, sender_psid){
 
         var response
         return response = {
-            "text" : `What is your next goal for week ${week_of_year}?`
+            "text" : `What is your next goal for week ${week_of_year}? Reply like this - Week ${week_of_year} : to contact suppliers`
         }
-    
-        
+
 
     }else{
         return undefined
