@@ -25,9 +25,9 @@ function dayTrainStarter(sender_psid, moTime){
         var niTime = doc.night_time.split("p")[0]
         // var dailyHourInterval = 12 + niTime - moTime
         // var sleepInterval = 12 - niTime + moTime
-        var dailyHourInterval = 45
-        var sleepInterval = 45
-
+        var dailyHourInterval = 60
+        var sleepInterval = 60
+        
         function secondLoop(){
             var intervalID2 = global.setTimeout(myCallback2, sleepInterval * 1000)
             function myCallback2(){

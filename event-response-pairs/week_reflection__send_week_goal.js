@@ -5,7 +5,14 @@ var moment = require('moment')
 
 function week_reflection__send_week_goal(received_message, sender_psid){
 
-    if(received_message.text.split(" ")[0] === "Reflection" || received_message.text.split(" ")[0] === "reflection"){
+    var spaceMsg = received_message.text.split(" ")
+    var news = ""
+    for(i=0; i < spaceMsg.length; i++){
+        news = news + spaceMsg[i]
+    }
+    var targ = news.split(":")[0]
+
+    if(targ === "Reflection" || targ === "reflection"){
         //Improve criteria to run this callback
         //var week_of_year = (moment().dayOfYear() + 7)/7
         var week_of_year = 2

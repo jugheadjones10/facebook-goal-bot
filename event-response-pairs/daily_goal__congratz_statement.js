@@ -5,8 +5,13 @@ var moment = require("moment")
 function daily_goal__congratz_statement(received_message, sender_psid){
 
     var spaceMsg = received_message.text.split(" ")
+    var news = ""
+    for(i=0; i < spaceMsg.length; i++){
+        news = news + spaceMsg[i]
+    }
+    var targ = news.split(":")[0]
 
-    if(spaceMsg[0] === "1:" || spaceMsg[0] === "1"){
+    if(targ[0] === "1"){
 
         careDaily.findOne({sender_PSID: sender_psid}).then((doc) => {
             if(!doc){
