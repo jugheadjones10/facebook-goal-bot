@@ -9,7 +9,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
     for(i=0; i < spaceMsg.length; i++){
         news = news + spaceMsg[i]
     }
-    var targ = news.split(":")
+    var targ = news.split(":")[0]
     var hey = targ.split("")
 
     if((hey[0] === "W" || hey[0] === "w") && hey[1] === "1"){
@@ -52,7 +52,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
         })
         
         mornTime.then((moTime) => {
-            var futstartMoment = moment([2018, 11, 21, 23, 1])
+            var futstartMoment = moment([2018, 11, 21, 23, 7])
             var theInterval =  futstartMoment.diff(moment(), "seconds") 
             var intervalID = global.setTimeout(myCallback, theInterval)
             function myCallback() {
