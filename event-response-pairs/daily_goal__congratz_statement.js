@@ -47,7 +47,7 @@ function daily_goal__congratz_statement(received_message, sender_psid){
         
             var response
             return response = {
-                "text" : "Nice! Work hard! I'll follow up at the end of the day!"
+                "text" : "Nice! Work hard 💪! I'll follow up at the end of the day!"
             }
     
         }else{

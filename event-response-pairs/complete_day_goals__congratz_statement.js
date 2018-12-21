@@ -25,7 +25,7 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
 
             var response
             return response = {
-                "text" : "Good Job! Keep it up! I'll message you tomorrow morning!"
+                "text" : "Good Job! Keep trying ✊! I'll message you tomorrow morning!"
             }
     
         }else{

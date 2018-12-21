@@ -13,7 +13,7 @@ function runWeekCheck(sender_psid){
 
         if(Number.isInteger(weekOfYear)){
             var response1 = {
-                "text" : `How well did you achieve your week ${weekOfYear - 1} goal? Where could you have improved? Reply like this - Reflection: I completed my weekly goal, but could have spent less time on Facebook`
+                "text" : `Did you achieve your week ${weekOfYear - 1} goal? \n Where could you have improved? \n Reply like this: \n R: I completed my weekly goal, but could have spent less time on Facebook`
             }
             callSendAPI(sender_psid, response1)
         }
@@ -32,7 +32,7 @@ function dayTrainStarter(sender_psid, moTime){
             var intervalID2 = global.setTimeout(myCallback2, sleepInterval * 1000)
             function myCallback2(){
                 callSendAPI(sender_psid, {
-                    "text": "Morning! What are your goals for today? Reply like this - 1: phone a business friend, 2: set up facebook page"
+                    "text": "Morning ⛅! What are your tasks for today? \n Reply like this: \n 1: phone a business friend \n 2: set up facebook page"
                 })
                 firstLoop()
             }
@@ -44,7 +44,7 @@ function dayTrainStarter(sender_psid, moTime){
 
                 callSendAPI(sender_psid, {
                     //Next time, add in custom ticking of completed tasks, not just the number of completed tasks
-                    "text": "So how many of your tasks did you complete today?",
+                    "text": "How many tasks did you complete today 🤔?",
                     "quick_replies":[
                         {
                             "content_type":"text",
@@ -75,7 +75,7 @@ function dayTrainStarter(sender_psid, moTime){
         }
 
         callSendAPI(sender_psid, {
-            "text":"Welcome to day 1! What are your tasks for the day? Reply like this - 1: phone a business friend, 2: set up facebook page"
+            "text":"Welcome to day 1! \n What are your tasks for the day? \n Reply like this: \n 1: phone a business friend \n 2: set up facebook page"
         })
         firstLoop()
     })

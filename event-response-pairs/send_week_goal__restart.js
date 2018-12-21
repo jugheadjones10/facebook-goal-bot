@@ -10,7 +10,7 @@ function send_week_goal__restart(received_message, sender_psid){
         news = news + spaceMsg[i]
     }
     var targ = news.split(":")[0]
-    var sore = targ.split("")[4]
+    var sore = targ.split("")[1]
 
     if(parseInt(sore, 10) && sore!=="1"){
         //var week_of_year = (moment().dayOfYear() + 7)/7
@@ -64,7 +64,7 @@ function send_week_goal__restart(received_message, sender_psid){
 
         var response
         return response = {
-            "text" : `Awsometacular. Work hard for week ${week_of_year}!`
+            "text" : `Awsome. Work hard 👌for week ${week_of_year}!`
         }
 
     }else{

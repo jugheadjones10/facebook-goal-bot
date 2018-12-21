@@ -48,7 +48,7 @@ function handlePostback(sender_psid, received_postback) {
     }
 
     var response2 = {
-        "text": "Hi, welcome to the GVH Caregivers Goals Manager! We'll take your yearly, weekly, and daily goals and help you complete them. Let's tweak your settings first."
+        "text": "Hi, welcome to the GVH Caregivers Goals Manager 🖐! \n We'll take your yearly, weekly, and daily goals and help you complete them. \n Let's tweak your settings first."
     }
 
     callSendAPI(sender_psid, response2)

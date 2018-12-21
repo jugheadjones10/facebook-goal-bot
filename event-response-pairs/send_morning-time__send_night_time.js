@@ -13,7 +13,7 @@ function send_morning_time__send_night_time(received_message, sender_psid){
             
             var response
             return response = {
-                "text": `${received_message.text} is perfect. When would you like to update me about your daily goals?`,
+                "text": `👍. WHAT TIME ⏲ do you want to update me about your daily goals?`,
                 "quick_replies":[
                     {
                         "content_type":"text",

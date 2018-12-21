@@ -14,7 +14,7 @@ function send_year_goal__send_week_goal(received_message, sender_psid){
     
         var response
         return response = {
-            "text" : "Awesome. Let's start small. What's your first weekly goal? Reply like this - Week 1 : to buy materials"
+            "text" : "Awesome. What's your first weekly goal? \n Reply like this: \n W1: buy materials"
         }
     
     }else{

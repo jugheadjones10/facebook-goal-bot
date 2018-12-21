@@ -12,7 +12,7 @@ function week_reflection__send_week_goal(received_message, sender_psid){
     }
     var targ = news.split(":")[0]
 
-    if(targ === "Reflection" || targ === "reflection"){
+    if(targ === "R" || targ === "r"){
         //Improve criteria to run this callback
         //var week_of_year = (moment().dayOfYear() + 7)/7
         var week_of_year = 2
@@ -33,7 +33,7 @@ function week_reflection__send_week_goal(received_message, sender_psid){
 
         var response
         return response = {
-            "text" : `What is your next goal for week ${week_of_year}? Reply like this - Week ${week_of_year} : to contact suppliers`
+            "text" : `What is your next goal for week ${week_of_year}? \n Reply like this: \n W${week_of_year} : contact suppliers`
         }
 
 
