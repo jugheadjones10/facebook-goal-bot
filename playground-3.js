@@ -1,19 +1,16 @@
+var spaceMsg = "W1:Get laid".split(" ")
+var news = ""
+for(i=0; i < spaceMsg.length; i++){
+    news = news + spaceMsg[i]
+}
+var targ = news.split(":")
+var hey = targ.split("")
 
-var bee = "Week 1: Fap more"
 
-    var spaceMsg = bee.split(" ")
-    var news = ""
-    for(i=0; i < spaceMsg.length; i++){
-        news = news + spaceMsg[i]
-    }
-    var targ = news.split(":")[0]
-    var sore = targ.split("")[4]
-    console.log(sore)
+if((targ[0] === "W" || targ[0] === "w") && targ[1] === "1"){
 
-    if(parseInt(sore, 10) && sore!=="1"){
-        console.log(77)
-    }
-
+}
+// 
 
 // console.log(spaceMsg)
 // if(spaceMsg[0] === ("week" || "Week") && spaceMsg[1] === ("1" || "1:")){

@@ -10,8 +10,9 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
         news = news + spaceMsg[i]
     }
     var targ = news.split(":")
+    var hey = targ.split("")
 
-    if((targ[0] === "W" || targ[0] === "w") && targ[1] === "1"){
+    if((hey[0] === "W" || hey[0] === "w") && hey[1] === "1"){
         
         careWeekly.findOne({sender_PSID: sender_psid}).then((doc) => {
             if(!doc){
@@ -51,7 +52,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
         })
         
         mornTime.then((moTime) => {
-            var futstartMoment = moment([2018, 11, 21, 22, 42])
+            var futstartMoment = moment([2018, 11, 21, 22, 55])
             var theInterval =  futstartMoment.diff(moment(), "seconds") 
             var intervalID = global.setTimeout(myCallback, theInterval)
             function myCallback() {
@@ -62,7 +63,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
 
         var response
         return response = {
-            "text" : "👍. Starting in 2019, we'll follow up with your weekly goals and ask you to set daily goals. /n Have fun!"
+            "text" : "👍 Starting in 2019, we'll follow up with your weekly goals and ask you to set daily goals. \n Have fun!"
         }
 
         
