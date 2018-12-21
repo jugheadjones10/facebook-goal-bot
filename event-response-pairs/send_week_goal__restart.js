@@ -64,7 +64,7 @@ function send_week_goal__restart(received_message, sender_psid){
 
         var response
         return response = {
-            "text" : `Awsome. Work hard 👌for week ${week_of_year}!`
+            "text" : `Awsome. Work hard 👌 for week ${week_of_year}!`
         }
 
     }else{
