@@ -33,7 +33,7 @@ function week_reflection__send_week_goal(received_message, sender_psid){
 
         var response
         return response = {
-            "text" : `What is your next goal for week ${week_of_year}? \n Reply like this: \n W${week_of_year} : contact suppliers`
+            "text" : `What is your next goal for week ${week_of_year}? \n\nReply like this: \nW${week_of_year} : contact suppliers`
         }
 
 
@@ -43,3 +43,5 @@ function week_reflection__send_week_goal(received_message, sender_psid){
 }
 
 module.exports = {week_reflection__send_week_goal}
+
+

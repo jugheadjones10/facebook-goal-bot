@@ -52,7 +52,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
         })
         
         mornTime.then((moTime) => {
-            var futstartMoment = moment([2018, 11, 21, 23, 7])
+            var futstartMoment = moment([2018, 11, 22, 1, 7])
             var theInterval =  futstartMoment.diff(moment(), "seconds") 
             var intervalID = global.setTimeout(myCallback, theInterval)
             function myCallback() {
@@ -63,7 +63,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
 
         var response
         return response = {
-            "text" : "👍 Starting in 2019, we'll follow up with your weekly goals and ask you to set daily goals. \n Have fun!"
+            "text" : "👍 Starting in 2019, we'll follow up with your weekly goals and ask you to set daily goals. \n\nHave fun!"
         }
 
         

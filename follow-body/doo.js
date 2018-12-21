@@ -13,7 +13,7 @@ function runWeekCheck(sender_psid){
 
         if(Number.isInteger(weekOfYear)){
             var response1 = {
-                "text" : `Did you achieve your week ${weekOfYear - 1} goal? \n Where could you have improved? \n Reply like this: \n R: I completed my weekly goal, but could have spent less time on Facebook`
+                "text" : `Did you achieve your week ${weekOfYear - 1} goal? \n\nWhere could you have improved? \n\nReply like this: \nR: I completed my weekly goal, but could have spent less time on Facebook`
             }
             callSendAPI(sender_psid, response1)
         }
@@ -75,7 +75,7 @@ function dayTrainStarter(sender_psid, moTime){
         }
 
         callSendAPI(sender_psid, {
-            "text":"Welcome to day 1! \n What are your tasks for the day? \n Reply like this: \n 1: phone a business friend \n 2: set up facebook page"
+            "text":"Welcome to day 1! \n\nWhat are your tasks for the day? \n\nReply like this: \n1: phone a business friend \n2: set up facebook page"
         })
         firstLoop()
     })
