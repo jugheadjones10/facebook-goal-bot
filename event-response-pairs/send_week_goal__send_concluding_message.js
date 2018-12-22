@@ -29,11 +29,19 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
                 return doc
             }
         }).then((doc) => {
-            doc.myWeekDetails.push({
-                "week_number" : 1,
-                "week_goal" : received_message.text
-            })
 
+            var found = doc.myWeekDetails.find(function(ele){
+                return ele.week_number === 1
+            })
+            if(!found){
+                doc.myWeekDetails.push({
+                    "week_number" : 1,
+                    "week_goal" : received_message.text
+                })
+            }else{
+                found.week_goal = received_message.text
+            }
+           
             doc.save().then((doc) => {
                 console.log("success")
             }, (e) => {
@@ -52,7 +60,8 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
         })
         
         mornTime.then((moTime) => {
-            var futstartMoment = moment([2018, 11, 22, 13, 3])
+            //Edit here to allow Facebook programmers to change futStartMoment
+            var futstartMoment = moment([2018, 11, 22, 13, 45])
             var theInterval =  futstartMoment.diff(moment(), "seconds") 
             var intervalID = global.setTimeout(myCallback, theInterval)
             function myCallback() {

@@ -8,12 +8,14 @@ function complete_day_goals__congratz_statement(received_message, sender_psid){
         var bo = received_message.quick_reply.payload
         if(bo === "0" || bo === "1" || bo === "2" || bo === "3"){
             careDaily.findOne({sender_PSID: sender_psid}).then((doc) => {
-                var foundDay = doc.myDayDetails.find(function(element){
-                    return element.day_of_year = moment().dayOfYear()
+
+                var found = doc.myDayDetails.find(function(ele){
+                    return ele.day_of_year === moment().dayOfYear()
                 })
-               
-                foundDay.daily_goals_conclusion = parseInt(bo, 10)
-    
+                if(found){
+                    found.daily_goals_conclusion =  parseInt(bo, 10)
+                }
+
                 doc.save().then((doc) => {
                     console.log("success")
                 }, (e) => {

@@ -32,7 +32,7 @@ function dayTrainStarter(sender_psid, moTime){
             var intervalID2 = global.setTimeout(myCallback2, sleepInterval * 1000)
             function myCallback2(){
                 callSendAPI(sender_psid, {
-                    "text": "Morning ⛅! What are your tasks for today? \n Reply like this: \n 1: phone a business friend \n 2: set up facebook page"
+                    "text": "Morning ⛅! What are your tasks for today? \n\nReply like this: \n1: phone a business friend \n2: set up facebook page"
                 })
                 firstLoop()
             }

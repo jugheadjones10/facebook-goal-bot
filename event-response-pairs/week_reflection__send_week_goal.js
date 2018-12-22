@@ -18,11 +18,12 @@ function week_reflection__send_week_goal(received_message, sender_psid){
         var week_of_year = 2
 
         careWeekly.findOne({sender_PSID: sender_psid}).then((doc) => {
-            doc.myWeekDetails.forEach(function(ele){
-                if(ele.week_number === (week_of_year - 1)){
-                    ele.week_goal_conclusion = received_message.text
-                }
+            
+            var found = doc.myWeekDetails.find(function(ele){
+                return ele.week_number === (week_of_year - 1)
             })
+            found.week_goal_conclusion = received_message.text
+           
 
             doc.save().then((doc) => {
                 console.log("success")

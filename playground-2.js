@@ -18,94 +18,33 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var moment = require("moment")
 moment().format()
 
-// var newUser = new careWeekly({sender_PSID: "6969"})
-// var doc2 = newUser.save().then((doc) => {
-//         console.log("success")
-//         return doc
-//     }, (e) => {
-//         console.log("ERROR")
-//     }
-// )
-// doc2.then((doc) => {
-//     doc.myWeekDetails.push({
-//         "week_number" : 1,
-//         "week_goal" : "Week 1 goal is to get a gf"
-//     })
+careDaily.findOne({sender_PSID: "9000"}).then((doc) => {
+    return doc
 
-//     doc.save().then((doc) => {
-//         console.log("success")
-//     }, (e) => {
-//         console.log("ERROR")
-//     })
-// })
+},(e) => {
+    console.log(e)
+}).then((doc) => {
 
-
-var boo = "My week 2 goal srgdgfap less"
-
-if(boo.split(" ").includes("week")){
-        
-    var checker = boo.split("week", 2)
-
-    if(checker[0] === "My " && !checker[1].split(" ").includes("1")){
-        //var week_of_year = (moment().dayOfYear() + 7)/7
-        var week_of_year = 2
-        careWeekly.findOne({sender_PSID: "6969"}).then((doc) => {
-
-            doc.myWeekDetails.forEach(ele => {
-                if(ele.week_number ===  week_of_year){
-                    ele.week_goal = boo
-
-                    doc.save().then((doc) => {
-                        console.log("success")
-                    }, (e) => {
-                        console.log("ERROR")
-                    })
-                }else{
-                    doc.myWeekDetails.push({
-                        "week_number" : week_of_year,
-                        "week_goal" : boo
-                    })
-    
-                    doc.save().then((doc) => {
-                        console.log("success")
-                    }, (e) => {
-                        console.log("ERROR")
-                    })
-                }
-            })
-
-            // console.log(foundWeek)
-            // if(!foundWeek){
-            //     doc.myWeekDetails.push({
-            //         "week_number" : week_of_year,
-            //         "week_goal" : boo
-            //     })
-
-            //     doc.save().then((doc) => {
-            //         console.log("success")
-            //     }, (e) => {
-            //         console.log("ERROR")
-            //     })
-            // }else{
-            //     foundWeek.week_goal = boo
-
-            //     doc.save().then((doc) => {
-            //         console.log("success")
-            //     }, (e) => {
-            //         console.log("ERROR")
-            //     })
-            // }
-            
-        }, (e) => {
-            console.log(e)
+    var found = doc.myDayDetails.find(function(ele){
+        return ele.day_of_year === moment().dayOfYear()
+    })
+    if(!found){
+        doc.myDayDetails.push({
+            "day_of_year" : moment().dayOfYear(),
+            "daily_goals" : "LOSER"
         })
-
     }else{
-        console.log("fail")
+        found.daily_goals = "LOSER"
     }
 
-}
-
+    doc.save().then((doc) => {
+        console.log("success")
+    }, (e) => {
+        console.log(e)
+    })
+}, (e) =>{
+    console.log(e)
+})
 
 module.exports = {
     mongoose

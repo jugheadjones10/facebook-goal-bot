@@ -29,13 +29,18 @@ function daily_goal__congratz_statement(received_message, sender_psid){
             },(e) => {
                 console.log(e)
             }).then((doc) => {
-                //Add verification that myDayDetails with today's day_of_year does not
-                //already exist
-                doc.myDayDetails.push({
-                    "day_of_year" : moment().dayOfYear(),
-                    "daily_goals" : received_message.text
+                var found = doc.myDayDetails.find(function(ele){
+                    return ele.day_of_year === moment().dayOfYear()
                 })
-    
+                if(!found){
+                    doc.myDayDetails.push({
+                        "day_of_year" : moment().dayOfYear(),
+                        "daily_goals" : received_message.text
+                    })
+                }else{
+                    found.daily_goals = received_message.text
+                }
+            
                 doc.save().then((doc) => {
                     console.log("success")
                 }, (e) => {
