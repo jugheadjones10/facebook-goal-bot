@@ -18,7 +18,7 @@ function fb_tester_set_2019_time(received_message, sender_psid){
 
         var response
         return response = {
-            "text" : `2019 start date set as ${futstartMoment}`
+            "text" : `2019 start date set as ${futStartMoment}`
         }
     
     }else{
