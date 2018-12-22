@@ -5,7 +5,7 @@ var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 
 function runWeekCheck(sender_psid){
     moment().format();
-    var intervalID2 = setTimeout(myCallback3, 20000)
+    var intervalID2 = setTimeout(myCallback3, 30000)
     // var weekOfYear = (moment().dayOfYear() + 7) / 7
     function myCallback3(){
 
@@ -25,8 +25,8 @@ function dayTrainStarter(sender_psid, moTime){
         var niTime = doc.night_time.split("p")[0]
         // var dailyHourInterval = 12 + niTime - moTime
         // var sleepInterval = 12 - niTime + moTime
-        var dailyHourInterval = 60
-        var sleepInterval = 60
+        var dailyHourInterval = 120
+        var sleepInterval = 120
         
         function secondLoop(){
             var intervalID2 = global.setTimeout(myCallback2, sleepInterval * 1000)
