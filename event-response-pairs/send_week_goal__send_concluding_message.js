@@ -2,6 +2,7 @@ const {mongoose} = require("./../database/mongoose")
 var {careSetting, careDaily, careWeekly} = require("./../mongoose-schemas/one")
 var moment = require('moment')
 var {dayTrainStarter} = require("./../follow-body/doo")
+var {futStartMoment} = require("./fb_tester_set_2019_time")
 
 function send_week_goal__send_concluding_message(received_message, sender_psid){
     var spaceMsg = received_message.text.split(" ")
@@ -60,8 +61,6 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
         })
         
         mornTime.then((moTime) => {
-            //Edit here to allow Facebook programmers to change futStartMoment
-            var futstartMoment = moment([2018, 11, 22, 13, 52])
             var theInterval =  futstartMoment.diff(moment(), "seconds") 
             var intervalID = global.setTimeout(myCallback, theInterval)
             function myCallback() {

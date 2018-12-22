@@ -10,6 +10,7 @@ var {daily_goal__congratz_statement} = require("./../event-response-pairs/daily_
 var {complete_day_goals__congratz_statement} = require("./../event-response-pairs/complete_day_goals__congratz_statement")
 var {week_reflection__send_week_goal} = require("./../event-response-pairs/week_reflection__send_week_goal")
 var {send_week_goal__restart} = require("./../event-response-pairs/send_week_goal__restart")
+var {fb_tester_set_2019_time} = require("./../event-response-pairs/fb_tester_set_2019_time")
  
 function handleMessage(sender_psid, received_message) {
 
@@ -30,7 +31,8 @@ function handleMessage(sender_psid, received_message) {
             daily_goal__congratz_statement(received_message, sender_psid),
             complete_day_goals__congratz_statement(received_message, sender_psid),
             week_reflection__send_week_goal(received_message, sender_psid),
-            send_week_goal__restart(received_message, sender_psid)
+            send_week_goal__restart(received_message, sender_psid),
+            fb_tester_set_2019_time(received_message, sender_psid)
         ]
 
         hey.forEach(function(res){
