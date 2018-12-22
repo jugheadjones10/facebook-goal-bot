@@ -5,6 +5,7 @@ var {dayTrainStarter} = require("./../follow-body/doo")
 var {futStartMoment} = require("./fb_tester_set_2019_time")
 
 function send_week_goal__send_concluding_message(received_message, sender_psid){
+    console.log(futStartMoment)
     var spaceMsg = received_message.text.split(" ")
     var news = ""
     for(i=0; i < spaceMsg.length; i++){
