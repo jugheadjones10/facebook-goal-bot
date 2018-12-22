@@ -63,7 +63,6 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
             var intervalID = global.setTimeout(myCallback, theInterval)
             function myCallback() {
                 dayTrainStarter(sender_psid, moTime)
-
             }
         })
 
