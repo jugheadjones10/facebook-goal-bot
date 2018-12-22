@@ -61,7 +61,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
         
         mornTime.then((moTime) => {
             //Edit here to allow Facebook programmers to change futStartMoment
-            var futstartMoment = moment([2018, 11, 22, 13, 45])
+            var futstartMoment = moment([2018, 11, 22, 13, 52])
             var theInterval =  futstartMoment.diff(moment(), "seconds") 
             var intervalID = global.setTimeout(myCallback, theInterval)
             function myCallback() {
