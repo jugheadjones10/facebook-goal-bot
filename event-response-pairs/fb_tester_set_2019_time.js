@@ -1,6 +1,6 @@
 var moment = require('moment')
 
-var futstartMoment
+var futStartMoment
 
 function fb_tester_set_2019_time(received_message, sender_psid){
     var spaceMsg = received_message.text.split(" ")
@@ -14,7 +14,7 @@ function fb_tester_set_2019_time(received_message, sender_psid){
 
         var time = news.split(":")[1].split(",")
         var futStartArray = [time[0], time[1], time[2], time[3], time[4]]
-        futstartMoment = moment(futStartArray)
+        futStartMoment = moment(futStartArray)
 
         var response
         return response = {
@@ -26,4 +26,4 @@ function fb_tester_set_2019_time(received_message, sender_psid){
     }
 }
 
-module.exports = {fb_tester_set_2019_time, futstartMoment}
+module.exports = {fb_tester_set_2019_time, futStartMoment}
