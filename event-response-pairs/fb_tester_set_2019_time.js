@@ -1,4 +1,6 @@
 var moment = require('moment')
+var {careSetting, careDaily} = require("./../mongoose-schemas/one")
+moment().format()
 
 var futStartMoment
 

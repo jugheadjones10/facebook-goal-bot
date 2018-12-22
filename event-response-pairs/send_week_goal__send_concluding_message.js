@@ -52,8 +52,6 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
             console.log(e)
         })
 
-        moment().format()
-
         var mornTime = careSetting.findOne({sender_PSID : sender_psid}).then((doc) => {
             return doc.morning_time.split("a")[0]
         }, (err) => {
@@ -68,6 +66,7 @@ function send_week_goal__send_concluding_message(received_message, sender_psid){
 
             }
         })
+
 
         var response
         return response = {
